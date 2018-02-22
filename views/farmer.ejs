@@ -1,0 +1,33 @@
+<% include ./partials/header %>
+<section class="ImageBackground ImageBackground--overlay v-align-parent u-height450" data-overlay="5">
+    <div class="ImageBackground__holder">
+        <img src="/imgs/farming.jpg" alt=""/>
+    </div>
+    <div class="v-align-child">
+        <div class="container ">
+            <div class="row ">
+                <div class="col-md-12 text-white text-center">
+                    <h1 class="text-uppercase u-Margin0 u-Weight700">Login</h1>
+                    <ol class="breadcrumb text-white u-MarginTop10 u-MarginBottom0">
+                        <li><a href="#">Home</a></li>
+                        <li class="active"><span>Login</span></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<p>Name: <% farmer.name %></p>
+<p>Father/Husband's Name: <% farmer.fhname %></p>
+<p>Village: <% farmer.village %></p>
+<p>Taluq: <% farmer.taluq %></p>
+<p>Hobli: <% farmer.hobli %></p>
+<p>Phone Number: <% farmer.mobile %></p>
+<p>Education: <% farmer.education%></p>
+<p>Aadhar Number: <% farmer.aadhar %></p>
+<p>Annual Income: <% farmer.annual_income %></p>
+<p>Bank Details: <% farmer.bank_details %></p>
+<p>House Status: <% farmer.house_status %></p>
+<p>Domestic Animals: <% farmer.domestic_animals %></p>
+<% include ./partials/footer %>

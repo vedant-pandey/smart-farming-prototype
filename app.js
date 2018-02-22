@@ -195,6 +195,16 @@ app.get("/farmer/new", function(req, res){
     res.render("new");
 });
 
+app.get("/farmer/:id", function(req, res){
+    farmerInfo.findById(req.params.id, function(err, foundFarmerInfo){
+        if (err) {
+            console.log(err);
+        } else {
+            res.render("farmer", {farmer: foundFarmerInfo});
+        }
+    });
+});
+
 app.post("/farmer/new", function(req, res){
     console.log(req.body);
     farmerInfo.create(
@@ -221,7 +231,7 @@ app.post("/farmer/new", function(req, res){
             farmerInfo.find(function(err, foundFarmer) {
                 if (err) {
                     res.send(err) }
-                res.json(foundFarmer);
+                res.redirect("/farmer/"+ foundFarmer['_id']);
             });
         });
     });
