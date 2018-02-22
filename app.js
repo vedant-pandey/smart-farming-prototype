@@ -200,6 +200,7 @@ app.get("/farmer/:id", function(req, res){
         if (err) {
             console.log(err);
         } else {
+            console.log(foundFarmerInfo);
             res.render("farmer", {farmer: foundFarmerInfo});
         }
     });
@@ -228,10 +229,10 @@ app.post("/farmer/new", function(req, res){
                 res.send(err);
             }
             // get and return all the reviews after you create another
-            farmerInfo.find(function(err, foundFarmer) {
+            farmerInfo.findOne({"mobile": req.body.mobile}, function(err, foundFarmer) {
                 if (err) {
                     res.send(err) }
-                res.redirect("/farmer/"+ foundFarmer['_id']);
+                res.redirect("/farmer/"+ foundFarmer.id);
             });
         });
     });
