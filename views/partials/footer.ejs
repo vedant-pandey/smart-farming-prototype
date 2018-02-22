@@ -1,0 +1,54 @@
+<footer class="bg-darker u-PaddingTop100 u-sm-PaddingTop30 u-PaddingBottom100 u-sm-PaddingBottom30 ">
+    <div class="container text-center text-sm">
+        <img class="retina u-MarginBottom50 u-sm-MarginBottom30" src="/imgs/rit@2x.png" alt="" style="width:auto;height:auto;">
+        <div class="social-links sl-default light-link solid-link circle-link colored-hover">
+            <a href="https://www.facebook.com/pages/Ramaiah-Institute-of-Technology/105736459461302" class="facebook">
+                <i class="fa fa-facebook"></i>
+            </a>
+        </div>
+        <p class="u-MarginBottom5 u-MarginTop20">All rights reserved.  |   Powered by <a href="https://inversion.co.in"><span style="color:#654321;">Inversion</span></a></p>
+    </div>
+</footer>
+<!--footer end-->
+
+
+<!-- inject:js -->
+<script src="/vendor/jquery/jquery-1.12.0.min.js"></script>
+<script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="/vendor/bootsnav/js/bootsnav.js"></script>
+<script src="/vendor/waypoints/jquery.waypoints.min.js"></script>
+<script src="/vendor/waypoints/sticky.min.js"></script>
+<script src="/vendor/headroom/headroom.min.js"></script>
+<script src="/vendor/jquery.countTo/jquery.countTo.min.js"></script>
+<script src="/vendor/owl.carousel2/owl.carousel.min.js"></script>
+<script src="/vendor/jquery.appear/jquery.appear.js"></script>
+<script src="/vendor/isotope/isotope.pkgd.min.js"></script>
+<script src="/vendor/imagesloaded/imagesloaded.js"></script>
+<script src="/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+<script src="/vendor/jquery.countdown.min.js"></script>
+<script src="/vendor/swiper/js/swiper.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- endinject -->
+
+<!--google map-->
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCVkU7YnGfown4_i_sm6X36HP2jWTv54&callback=initMap"> </script>
+
+<script>
+    function initMap() {
+        var location, map, marker;
+
+        location = {lat: 37.773972, lng: -122.431297};
+        map = new google.maps.Map(document.getElementById('map'), {
+            center: location,
+            zoom: 15,
+            scrollwheel:false
+        });
+        marker = new google.maps.Marker({
+            position: location,
+            map: map
+        });
+    }
+</script>
+
+</body>
+</html>

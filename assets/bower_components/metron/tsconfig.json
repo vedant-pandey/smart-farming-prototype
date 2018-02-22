@@ -1,0 +1,24 @@
+{
+    "compileOnSave": true,
+    "compilerOptions": {
+                "module": "umd", 
+                "target": "es5",
+                "outFile": "dist/gen/metron.js",
+                "sourceMap": true,
+                "declaration": true,
+                "removeComments": true
+            },
+    "files": [
+        "src/metron.extenders.ts",
+        "src/metron.types.ts",
+        "src/metron.ts",
+        "src/metron.optional.ts",
+        "src/metron.tools.ts",
+        "src/metron.base.ts",
+        "src/metron.framework.ts",
+        "src/metron.lists.ts",
+        "src/metron.forms.ts",
+        "src/metron.views.ts",
+        "src/metron.templates.ts"
+    ]
+}

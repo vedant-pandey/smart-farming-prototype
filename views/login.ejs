@@ -1,0 +1,49 @@
+<% include ./partials/header %>
+<script src="/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="/bower_components/metron/src/metron.min.js"></script>
+<script src="/js/app.js"></script>
+<link rel="stylesheet" href="/bower_components/milligram/dist/milligram.min.css" />
+<style>
+    main {
+        max-width: 800px;
+        margin: 50px auto;
+    }
+    .error {
+        border-color: #990000 !important;
+    }
+</style>
+<section class="ImageBackground ImageBackground--overlay v-align-parent u-height450" data-overlay="5">
+    <div class="ImageBackground__holder">
+        <img src="/imgs/farming.jpg" alt=""/>
+    </div>
+    <div class="v-align-child">
+        <div class="container ">
+            <div class="row ">
+                <div class="col-md-12 text-white text-center">
+                    <h1 class="text-uppercase u-Margin0 u-Weight700">Login</h1>
+                    <ol class="breadcrumb text-white u-MarginTop10 u-MarginBottom0">
+                        <li><a href="#">Home</a></li>
+                        <li class="active"><span>Login</span></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<main>
+    <h3>Farmer Login</h3>
+    <form method="POST" action="/login" data-step="1" id="main">
+        <section data-step="1">
+            <fieldset>
+                <legend>Personal Information</legend>
+                <label for="name">Aadhar Number</label>
+                <input id="name" name="name" type="text" required="required" />
+                <label for="password">Password</label>
+                <input id="password" name="password" type="password" required="required" />
+            </fieldset>
+        </section>
+        <!-- <button class="button button-outline">Back</button> -->
+        <input class="button button-primary" type="submit" value="Submit" />
+    </form>
+</main>
+<% include ./partials/footer %>

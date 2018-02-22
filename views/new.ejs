@@ -1,0 +1,110 @@
+<% include ./partials/header %>
+<script src="/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="/bower_components/metron/src/metron.min.js"></script>
+<script src="/js/app.js"></script>
+<link rel="stylesheet" href="/bower_components/milligram/dist/milligram.min.css" />
+<style>
+    main {
+        max-width: 800px;
+        margin: 50px auto;
+    }
+    .error {
+        border-color: #990000 !important;
+    }
+</style>
+<section class="ImageBackground ImageBackground--overlay v-align-parent u-height450" data-overlay="5">
+    <div class="ImageBackground__holder">
+        <img src="/imgs/farming.jpg" alt=""/>
+    </div>
+    <div class="v-align-child">
+        <div class="container ">
+            <div class="row ">
+                <div class="col-md-12 text-white text-center">
+                    <h1 class="text-uppercase u-Margin0 u-Weight700">Register</h1>
+                    <ol class="breadcrumb text-white u-MarginTop10 u-MarginBottom0">
+                        <li><a href="#">Home</a></li>
+                        <li class="active"><span>Register</span></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<main>
+    <h3>Register Farmer</h3>
+    <form method="POST" action="/farmer/new" data-step="1" id="main">
+        <section data-step="1">
+            <fieldset>
+                <legend>Personal Information</legend>
+                <label for="name">Name</label>
+                <input id="name" name="name" type="text" required="required" />
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" required="required" />
+                <label for="mobile">Phone Number</label>
+                <input id="mobile" name="mobile" type="tel" required="required"/>
+                <label for="fhname">Father / Husband's Name</label>
+                <input id="fhname" name="fhname" type="text" required="required" />
+                <label for="village">Village</label>
+                <input id="village" name="village" type="text" required="required" />
+                <label for="taluq">Taluq</label>
+                <input id="taluq" name="taluq" type="text" required="required" />
+                <label for="education">Education</label>
+                <input id="education" name="education" type="text" required="required" />
+                <label for="hobli">Hobli</label>
+                <input id="hobli" name="hobli" type="text" required="required" />
+                <label for="aadhar">Aadhar</label>
+                <input id="aadhar" name="aadhar" type="text" required="required" />
+                <label for="annual_income">Annual Income</label>
+                <input id="annual_income" name="annual_income" type="text" required="required" />
+            </fieldset>
+        </section>
+        <section data-step="2">
+            <fieldset>
+                <legend>Bank Details</legend>
+                <label for="bank_details[bank_name]">Bank Name</label>
+                <input id="bank_details[bank_name]" name="bank_details[bank_name]" type="text" />
+                <label for="bank_details[acc_no]">Account Name</label>
+                <input id="bank_details[acc_no]" name="bank_details[acc_no]" type="text" />
+                <label for="bank_details[branch_name]">Branch Name</label>
+                <input id="bank_details[branch_name]" name="bank_details[branch_name]" type="text" />
+                <label for="bank_details[ifsc]">IFSC Code</label>
+                <input id="bank_details[ifsc]" name="bank_details[ifsc]" type="text" />
+            </fieldset>
+        </section>
+        <section data-step="3">
+            <fieldset>
+                <legend>House Details</legend>
+                <label for="house_status">Select House Status</label>
+                <select name="house_status" id="house_status"  required="required" form="main">
+                    <option value="moulded">Moulded</option>
+                    <option value="roof">Roof</option>
+                    <option value="hut">Hut</option>
+                    <option value="rented">Rented</option>
+                </select>
+
+                <legend>Domestic Animals</legend>
+                <label for="domestic_animals[cows]">Cows</label>
+                <input id="domestic_animals[cows]" name="domestic_animals[cows]" type="text" required="required" />
+                <label for="domestic_animals[calves]">Calves</label>
+                <input id="domestic_animals[calves]" name="domestic_animals[calves]" type="text" required="required" />
+                <label for="domestic_animals[buffalo]">Buffalo</label>
+                <input id="domestic_animals[buffalo]" name="domestic_animals[buffalo]" type="text" required="required" />
+                <label for="domestic_animals[ox]">Ox</label>
+                <input id="domestic_animals[ox]" name="domestic_animals[ox]" type="text" required="required" />
+                <label for="domestic_animals[cock]">Cock</label>
+                <input id="domestic_animals[cock]" name="domestic_animals[cock]" type="text" required="required" />
+                <label for="domestic_animals[hen]">Hen</label>
+                <input id="domestic_animals[hen]" name="domestic_animals[hen]" type="text" required="required" />
+                <label for="domestic_animals[sheep]">Sheep</label>
+                <input id="domestic_animals[sheep]" name="domestic_animals[sheep]" type="text" required="required" />
+                <label for="domestic_animals[goats]">Goats</label>
+                <input id="domestic_animals[goats]" name="domestic_animals[goats]" type="text" required="required" />
+                <label for="domestic_animals[others]">Others</label>
+                <input id="domestic_animals[others]" name="domestic_animals[others]" type="text" required="required" />
+            </fieldset>
+        </section>
+        <button class="button button-outline">Back</button>
+        <input class="button button-primary" type="submit" value="Send" />
+    </form>
+</main>
+<% include ./partials/footer %>
