@@ -194,6 +194,7 @@ app.get("/farmer", function(req, res){
         if (err) {
             console.log("Error");
         }
+        console.log(allFarmerInfo);
         res.render("allfarmers", {allFarmerInfo: allFarmerInfo});
     });
 });
@@ -202,8 +203,8 @@ app.get("/farmer/new", function(req, res){
     res.render("new");
 });
 
-app.get("/farmer/:id", function(req, res){
-    farmerInfo.findById(req.params.id, function(err, foundFarmerInfo){
+app.get("/farmer/:mobile", function(req, res){
+    farmerInfo.findById({ "mobile": req.params.mobile }, function(err, foundFarmerInfo){
         if (err) {
             console.log(err);
         } else {
@@ -236,11 +237,12 @@ app.post("/farmer/new", function(req, res){
                 res.send(err);
             }
             // get and return all the reviews after you create another
-            farmerInfo.findOne({"mobile": req.body.mobile}, function(err, foundFarmer) {
-                if (err) {
-                    res.send(err) }
-                res.redirect("/farmer/"+ foundFarmer.id);
-            });
+            // farmerInfo.findOne({"mobile": req.body.mobile}, function(err, foundFarmer) {
+            //     if (err) {
+            //         res.send(err) }
+            //     res.redirect("/farmer/"+ foundFarmer.id);
+            // });
+            res.redirect("/farmer");
         });
     });
 

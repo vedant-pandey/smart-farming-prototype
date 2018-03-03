@@ -70,7 +70,7 @@ function attach_delete(){
                 <label for="hobli">Hobli</label>
                 <input id="hobli" name="hobli" type="text" required="required" />
                 <label for="aadhar">Aadhar</label>
-                <input id="aadhar" name="aadhar" type="text" required="required" />
+                <input id="aadhar" name="aadhar" type="text" minlength="12" maxlength="12" pattern="\d{12}" required="required" />
                 <label for="annual_income">Annual Income</label>
                 <input id="annual_income" name="annual_income" type="text" required="required" />
             </fieldset>

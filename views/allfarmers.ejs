@@ -1,5 +1,22 @@
 <% include ./partials/header %>
-
+<section class="ImageBackground ImageBackground--overlay v-align-parent u-height450" data-overlay="5">
+        <div class="ImageBackground__holder">
+            <img src="/imgs/farming.jpg" alt=""/>
+        </div>
+        <div class="v-align-child">
+            <div class="container ">
+                <div class="row ">
+                    <div class="col-md-12 text-white text-center">
+                        <h1 class="text-uppercase u-Margin0 u-Weight700">Farmer</h1>
+                        <ol class="breadcrumb text-white u-MarginTop10 u-MarginBottom0">
+                            <li><a href="#">Home</a></li>
+                            <li class="active"><span>Farmer</span></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 <div class="container">
     <h2>Farmers Info</h2>
     <p>ABCDE</p>            
@@ -9,15 +26,15 @@
           <th>Name</th>
           <th>Mobile</th>
           <th>Email</th>
-          <th>Aadhar No</th>
+          <th>Aadhar Number</th>
           <th>Village</th>
         </tr>
       </thead>
       <tbody>
         <% allFarmerInfo.forEach(function(x){ %>
             <tr>
-              <td><a  href="/farmer/"+ <%= x._id %></a><%= x.name %></a></td>
-              <td><% x.mobile %></td>
+              <td><a  href="/farmer/"+ <%= x.mobile %></a><%= x.name %></a></td>
+              <td><%= x.mobile %></td>
               <td><%= x.email %></td>
               <td><%= x.aadhar %></td>
               <td><%= x.village %></td>
