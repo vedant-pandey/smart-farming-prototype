@@ -189,7 +189,14 @@ app.post("/login", function(req, res){
     }
 });
 
-
+app.get("/farmer", function(req, res){
+    farmerInfo.find({}, function(err, allFarmerInfo){
+        if (err) {
+            console.log("Error");
+        }
+        res.render("allfarmers", {allFarmerInfo: allFarmerInfo});
+    });
+});
 
 app.get("/farmer/new", function(req, res){
     res.render("new");

@@ -1,0 +1,32 @@
+<% include ./partials/header %>
+
+<div class="container">
+    <h2>Farmers Info</h2>
+    <p>ABCDE</p>            
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Mobile</th>
+          <th>Email</th>
+          <th>Aadhar No</th>
+          <th>Village</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% allFarmerInfo.forEach(function(x){ %>
+            <tr>
+              <td><a  href="/farmer/"+ <%= x._id %></a><%= x.name %></a></td>
+              <td><% x.mobile %></td>
+              <td><%= x.email %></td>
+              <td><%= x.aadhar %></td>
+              <td><%= x.village %></td>
+            </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+  
+
+
+<% include ./partials/footer %>
