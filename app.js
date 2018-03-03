@@ -203,8 +203,8 @@ app.get("/farmer/new", function(req, res){
     res.render("new");
 });
 
-app.get("/farmer/:mobile", function(req, res){
-    farmerInfo.findById({ "mobile": req.params.mobile }, function(err, foundFarmerInfo){
+app.get("/farmer/:id", function(req, res){
+    farmerInfo.findById(req.params.id, function(err, foundFarmerInfo){
         if (err) {
             console.log(err);
         } else {
