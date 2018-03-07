@@ -13,8 +13,7 @@ mongoose.connect("mongodb://razor:hailhydra@ds243418.mlab.com:43418/mtaiitsubs")
 var LocalStrategy = require("passport-local");
 var passportLocalMongoose = require("passport-local-mongoose");
 app.use(morgan('dev'));                                         // log every request to the console           // parse application/x-www-form-urlencoded
-app.use(bodyParser.json());                                     // parse application/json
-app.use(bodyParser.json({ type: 'application/vnd.api+json' })); // parse application/vnd.api+json as json
+ // parse application/vnd.api+json as json
 app.use(methodOverride());
 app.use(cors());
 app.disable('x-powered-by');
