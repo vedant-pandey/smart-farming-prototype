@@ -7,7 +7,6 @@ var morgan = require('morgan');
 var User = require("./user");      // log requests to the console (express4)
 var bodyParser = require('body-parser');    // pull information from HTML POST (express4)
 var methodOverride = require('method-override'); // simulate DELETE and PUT (express4)
-var cors = require('cors');
 var ejs  = require('ejs');
 mongoose.connect("mongodb://razor:hailhydra@ds243418.mlab.com:43418/mtaiitsubs");
 var LocalStrategy = require("passport-local");
@@ -15,7 +14,6 @@ var passportLocalMongoose = require("passport-local-mongoose");
 app.use(morgan('dev'));                                         // log every request to the console           // parse application/x-www-form-urlencoded
  // parse application/vnd.api+json as json
 app.use(methodOverride());
-app.use(cors());
 app.disable('x-powered-by');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + "/assets"));
@@ -26,13 +24,6 @@ app.use(require("express-session")({
     resave: false,
     saveUninitialized: false
 }));
-
-app.use(function(req, res, next) {
-   res.header("Access-Control-Allow-Origin", "*");
-   res.header('Access-Control-Allow-Methods', 'DELETE, PUT');
-   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-   next();
-});
 app.use(passport.initialize());
 app.use(passport.session());
 passport.use(new LocalStrategy(User.authenticate()));
