@@ -76,7 +76,7 @@ app.get("/login", function(req, res){
 
 app.post("/login", passport.authenticate("local", {
     successRedirect: "/farmer",
-    failureRedirect: "https://google.com"
+    failureRedirect: "/login"
 }), function(req, res){
     
 });
