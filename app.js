@@ -1,14 +1,17 @@
 var express = require("express");
 var app     = express();
+var passport = require("passport");
 var mongoose = require('mongoose');                     // mongoose for mongodb
-var morgan = require('morgan');             // log requests to the console (express4)
+var morgan = require('morgan');       
+
+var User = require("./user");      // log requests to the console (express4)
 var bodyParser = require('body-parser');    // pull information from HTML POST (express4)
 var methodOverride = require('method-override'); // simulate DELETE and PUT (express4)
 var cors = require('cors');
 var ejs  = require('ejs');
 mongoose.connect("mongodb://razor:hailhydra@ds243418.mlab.com:43418/mtaiitsubs");
-
- 
+var LocalStrategy = require("passport-local");
+var passportLocalMongoose = require("passport-local-mongoose");
 app.use(morgan('dev'));                                         // log every request to the console           // parse application/x-www-form-urlencoded
 app.use(bodyParser.json());                                     // parse application/json
 app.use(bodyParser.json({ type: 'application/vnd.api+json' })); // parse application/vnd.api+json as json
@@ -19,12 +22,84 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + "/assets"));
 app.set("view engine", "ejs");
 app.use(morgan());
+app.use(require("express-session")({
+    secret: "Rusty is a very cute and nice dog!",
+    resave: false,
+    saveUninitialized: false
+}));
+
 app.use(function(req, res, next) {
    res.header("Access-Control-Allow-Origin", "*");
    res.header('Access-Control-Allow-Methods', 'DELETE, PUT');
    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
    next();
 });
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new LocalStrategy(User.authenticate()));
+app.use(function(req, res, next){
+    res.locals.currentUser = req.user;
+  //  res.locals.error = req.flash("error");
+ //   res.locals.success = req.flash("success");
+    next();
+ });
+// app.use(bodyParser.urlencoded({extended: true}));
+passport.serializeUser(function(user, cb) {
+    cb(null, user);
+  });
+  
+  passport.deserializeUser(function(obj, cb) {
+    cb(null, obj);
+  });
+
+app.get("/register", function(req, res){
+    res.render("register"); 
+});
+app.post("/register", function(req, res){
+    var user = req.body.username;
+    var pass = req.body.password;
+    User.register(new User({username: user}), pass, function(err, user){
+       if(err){
+           console.log(err);
+           return res.render("/register");
+       } else {
+           passport.authenticate("local")(req, res, function(){
+              res.redirect("/farmer"); 
+           });
+       }
+    });
+});
+
+app.get("/secret", isLoggedIn, function(req, res){
+   res.send("secret page!"); 
+});
+
+app.get("/login", function(req, res){
+   res.render("login"); 
+});
+
+app.post("/login", passport.authenticate("local", {
+    successRedirect: "/farmer",
+    failureRedirect: "https://google.com"
+}), function(req, res){
+    
+});
+
+app.get("/logout", function(req, res){
+   req.logout();
+   res.redirect("/");
+});
+
+function isLoggedIn(req, res, next){
+    if(req.isAuthenticated()){
+        return next();
+    }
+     res.redirect("/login");
+}
+ 
+
+// module.exports = mongoose.model("User", User);
+
 var farmerInfo = mongoose.model('farmerinfo', {
     name: String, 
     fhname: String, 
@@ -177,19 +252,19 @@ app.get("/", function(req, res){
     res.render("index");
 });
 
-app.get("/login", function(req, res){
-    res.render("login");
-});
+// app.get("/login", function(req, res){
+//     res.render("login");
+// });
 
-app.post("/login", function(req, res){
-    if (req.body.name=="admin" && req.body.password=="admin") {
-        res.redirect("/farmer/new");
-    } else {
-        res.redirect("/");
-    }
-});
+// app.post("/login", function(req, res){
+//     if (req.body.name=="admin" && req.body.password=="admin") {
+//         res.redirect("/farmer/new");
+//     } else {
+//         res.redirect("/");
+//     }
+// });
 
-app.get("/farmer", function(req, res){
+app.get("/farmer", isLoggedIn ,function(req, res){
     farmerInfo.find({}, function(err, allFarmerInfo){
         if (err) {
             console.log("Error");
@@ -199,11 +274,11 @@ app.get("/farmer", function(req, res){
     });
 });
 
-app.get("/farmer/new", function(req, res){
+app.get("/farmer/new",isLoggedIn , function(req, res){
     res.render("new");
 });
 
-app.get("/farmer/:id", function(req, res){
+app.get("/farmer/:id", isLoggedIn ,function(req, res){
     farmerInfo.findById(req.params.id, function(err, foundFarmerInfo){
         if (err) {
             console.log(err);
@@ -214,7 +289,7 @@ app.get("/farmer/:id", function(req, res){
     });
 });
 
-app.post("/farmer/new", function(req, res){
+app.post("/farmer/new",isLoggedIn  ,function(req, res){
     console.log(req.body);
     farmerInfo.create(
         {
@@ -251,6 +326,6 @@ app.get("/*", function(req, res){
  });
  
  //Setting up server
- app.listen(5080, process.env.IP, function(){
+ app.listen(5090, process.env.IP, function(){
     console.log("Server is up and running! Go ahead make your move.");
  });
