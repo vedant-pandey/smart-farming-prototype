@@ -12,15 +12,14 @@ var LocalStrategy = require("passport-local");
 // var passportLocalMongoose = require("passport-local-mongoose");
 app.use(morgan('dev'));                                         // log every request to the console           // parse application/x-www-form-urlencoded
  // parse application/vnd.api+json as json
- var passportLocalMongoose = require("passport-local-mongoose");
-
- var userSchema = new mongoose.Schema({
-    username: String,
-    password: String
- });
- userSchema.plugin(passportLocalMongoose);
- var User = mongoose.model("User", userSchema);
- app.use(methodOverride());
+var passportLocalMongoose = require("passport-local-mongoose");
+var userSchema = new mongoose.Schema({
+   username: String,
+   password: String
+});
+userSchema.plugin(passportLocalMongoose);
+var User = mongoose.model("User", userSchema);
+app.use(methodOverride());
 app.disable('x-powered-by');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + "/assets"));
