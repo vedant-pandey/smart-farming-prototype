@@ -3,14 +3,13 @@ var app     = express();
 var passport = require("passport");
 var mongoose = require('mongoose');                     // mongoose for mongodb
 var morgan = require('morgan');       
-
 var User = require("./user");      // log requests to the console (express4)
 var bodyParser = require('body-parser');    // pull information from HTML POST (express4)
 var methodOverride = require('method-override'); // simulate DELETE and PUT (express4)
 var ejs  = require('ejs');
 mongoose.connect("mongodb://razor:hailhydra@ds243418.mlab.com:43418/mtaiitsubs");
 var LocalStrategy = require("passport-local");
-var passportLocalMongoose = require("passport-local-mongoose");
+// var passportLocalMongoose = require("passport-local-mongoose");
 app.use(morgan('dev'));                                         // log every request to the console           // parse application/x-www-form-urlencoded
  // parse application/vnd.api+json as json
 app.use(methodOverride());
