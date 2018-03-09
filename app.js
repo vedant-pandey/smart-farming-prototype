@@ -2,7 +2,11 @@ var express = require("express");
 var app     = express();
 var passport = require("passport");
 var mongoose = require('mongoose');                     // mongoose for mongodb
-var morgan = require('morgan');       
+var morgan = require('morgan');
+var fileUpload = require('express-fileupload');
+
+var path = require('path'),
+    fs = require('fs');
 // var User = require("./user");      // log requests to the console (express4)
 var bodyParser = require('body-parser');    // pull information from HTML POST (express4)
 var methodOverride = require('method-override'); // simulate DELETE and PUT (express4)
@@ -22,6 +26,9 @@ var User = mongoose.model("User", userSchema);
 app.use(methodOverride());
 app.disable('x-powered-by');
 app.use(bodyParser.urlencoded({extended: true}));
+// app.use(bodyParser({uploadDir:'/uploads'}));
+app.use(fileUpload());
+
 app.use(express.static(__dirname + "/assets"));
 app.set("view engine", "ejs");
 app.use(morgan());
@@ -97,6 +104,8 @@ function isLoggedIn(req, res, next){
 // module.exports = mongoose.model("User", User);
 
 var farmerInfo = mongoose.model('farmerinfo', {
+    role: String, 
+    file: String,
     name: String, 
     fhname: String, 
     village: String,
@@ -279,7 +288,8 @@ app.get("/farmer/:id", isLoggedIn ,function(req, res){
         if (err) {
             console.log(err);
         } else {
-            console.log(foundFarmerInfo);
+            // console.log(foundFarmerInfo);
+            // res.sendfile(path.resolve('./uploads/'+ foundFarmerInfo['aadhar'] +'.png'));
             res.render("farmer", {farmer: foundFarmerInfo});
         }
     });
@@ -287,6 +297,26 @@ app.get("/farmer/:id", isLoggedIn ,function(req, res){
 
 app.post("/farmer/new",isLoggedIn  ,function(req, res){
     console.log(req.body);
+    // var sampleFile = req.files.file;
+    //     // targetPath = path.resolve('./uploads/'+req.body.aadhar +'.png');
+    // if (path.extname(req.files.file.name).toLowerCase() === '.png') {
+    //     // fs.rename(tempPath, targetPath, function(err) {
+    //     //     if (err) throw err;
+    //     //     console.log("Upload completed!");
+    //     // });
+    //     sampleFile.mv('./uploads/'+ req.body.aadhar + '.png', function(err) {
+    //         if (err)
+    //           return res.status(500).send(err);
+         
+    //         console.log('Upload');
+    //       }); 
+    // }
+    // } else {
+    //     fs.unlink(tempPath, function () {
+    //         if (err) throw err;
+    //         console.error("Only .png files are allowed!");
+    //     });
+    // }
     farmerInfo.create(
         {
             name: req.body.name,
