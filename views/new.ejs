@@ -70,7 +70,7 @@ function attach_delete(){
                 <label for="hobli">Hobli</label>
                 <input id="hobli" name="hobli" type="text" required="required" />
                 <label for="aadhar">Aadhar</label>
-                <input id="aadhar" name="aadhar" type="text" minlength="12" maxlength="12" pattern="\d{12}" required="required" />
+                <input id="aadhar" name="aadhar" type="text" minlength="12" maxlength="12" pattern="[0-9]{12}" required="required" />
                 <label for="annual_income">Annual Income</label>
                 <input id="annual_income" name="annual_income" type="text" required="required" />
             </fieldset>
@@ -78,14 +78,19 @@ function attach_delete(){
         <section data-step="2">
             <fieldset>
                 <legend>Bank Details</legend>
-                <label for="bank_details[bank_name]">Bank Name</label>
-                <input id="bank_details[bank_name]" name="bank_details[bank_name]" type="text" />
-                <label for="bank_details[acc_no]">Account Number</label>
-                <input id="bank_details[acc_no]" name="bank_details[acc_no]" type="text" />
-                <label for="bank_details[branch_name]">Branch Name</label>
-                <input id="bank_details[branch_name]" name="bank_details[branch_name]" type="text" />
-                <label for="bank_details[ifsc]">IFSC Code</label>
-                <input id="bank_details[ifsc]" name="bank_details[ifsc]" type="text" />
+                <div id="bank_clonable">
+                    <label for="bank_details[bank_name]">Bank Name</label>
+                    <input id="bank_details[bank_name]" name="bank_details[bank_name]" type="text" />
+                    <label for="bank_details[acc_no]">Account Number</label>
+                    <input id="bank_details[acc_no]" name="bank_details[acc_no]" type="text" />
+                    <label for="bank_details[branch_name]">Branch Name</label>
+                    <input id="bank_details[branch_name]" name="bank_details[branch_name]" type="text" />
+                    <label for="bank_details[ifsc]">IFSC Code</label>
+                    <input id="bank_details[ifsc]" name="bank_details[ifsc]" type="text" />
+                    <hr>
+                </div>
+                <button id="add_bank_clone"><i class="fa fa-plus"></i></button>
+                <button id="remove_bank_clone"><i class="fa fa-minus"></i></button>
                 <div class="form-group dynamic-element" style="display:none">
                     <div class="row">
                     <div class="col-md-2"></div>
@@ -114,9 +119,48 @@ function attach_delete(){
         </section>
         <section data-step="3">
             <fieldset>
+                <legend>Land Details</legend>
+                <div id="land_clonable">
+                    <select name="land_details" id="land_details" required="required" class="form-control">
+                        <option value="irrigated">Irrigated</option>
+                        <option value="rain_fed">Rain Fed</option>
+                        <option value="lease">Lease</option>
+                        <option value="leased_out">Leased Out</option>
+                    </select>
+
+                    <label for="land_extent">Extent</label>
+                    <input id="land_extent" name="land_extent" type="text" required="required" />
+                    <label for="land_survey_no">Survey Number</label>
+                    <input id="land_survey_no" name="land_survey_no" type="text" required="required" />
+                    <label for="land_village">Village</label>
+                    <input id="land_village" name="land_village" type="text" required="required" />
+                    <label for="land_name">Name</label>
+                    <input id="land_name" name="land_name" type="text" required="required" />
+                    <label for="total_land_query">Total Irrigated</label>
+                    <input id="total_land_query" name="total_land_query" type="text" required="required" />
+                    <label for="total_land_query2">Total Land Holding</label>
+                    <input id="total_land_query2" name="total_land_query2" type="text" required="required"/>
+
+                    <label for="irrigation_source">Select Irrigation source used</label>
+                    <select name="irrigation_source" id="irrigation_source" required="required" class="form-control">
+                        <option value="borewell">Borewell</option>
+                        <option value="depth_borewell">Depth Borewell</option>
+                        <option value="yield">Yield</option>
+                        <option value="lakeorpond">Lake/Pond</option>
+                        <option value="stream">Stream</option>
+                        <option value="rain_water_harvesting">Rain Water Harvesting</option>
+                    </select>
+                    <hr>
+                </div>
+                <button id="add_land_clone"><i class="fa fa-plus"></i></button>
+                <button id="remove_land_clone"><i class="fa fa-minus"></i></button>
+            </fieldset>
+        </section>
+        <section data-step="4">
+            <fieldset>
                 <legend>House Details</legend>
                 <label for="house_status">Select House Status</label>
-                <select name="house_status" id="house_status"  required="required" form="main">
+                <select name="house_status" id="house_status"  required="required">
                     <option value="moulded">Moulded</option>
                     <option value="roof">Roof</option>
                     <option value="hut">Hut</option>
@@ -124,24 +168,24 @@ function attach_delete(){
                 </select>
 
                 <legend>Domestic Animals</legend>
-                <label for="domestic_animals[cows]">Cows</label>
-                <input id="domestic_animals[cows]" name="domestic_animals[cows]" type="text" required="required" />
-                <label for="domestic_animals[calves]">Calves</label>
-                <input id="domestic_animals[calves]" name="domestic_animals[calves]" type="text" required="required" />
-                <label for="domestic_animals[buffalo]">Buffalo</label>
-                <input id="domestic_animals[buffalo]" name="domestic_animals[buffalo]" type="text" required="required" />
-                <label for="domestic_animals[ox]">Ox</label>
-                <input id="domestic_animals[ox]" name="domestic_animals[ox]" type="text" required="required" />
-                <label for="domestic_animals[cock]">Cock</label>
-                <input id="domestic_animals[cock]" name="domestic_animals[cock]" type="text" required="required" />
-                <label for="domestic_animals[hen]">Hen</label>
-                <input id="domestic_animals[hen]" name="domestic_animals[hen]" type="text" required="required" />
-                <label for="domestic_animals[sheep]">Sheep</label>
-                <input id="domestic_animals[sheep]" name="domestic_animals[sheep]" type="text" required="required" />
-                <label for="domestic_animals[goats]">Goats</label>
-                <input id="domestic_animals[goats]" name="domestic_animals[goats]" type="text" required="required" />
-                <label for="domestic_animals[others]">Others</label>
-                <input id="domestic_animals[others]" name="domestic_animals[others]" type="text" required="required" />
+                <label for="cow_count">Cows</label>
+                <input id="cow_count" name="cow_count" type="text" required="required" />
+                <label for="calf_count">Calves</label>
+                <input id="calf_count" name="calf_count" type="text" required="required" />
+                <label for="buffalo_count">Buffalo</label>
+                <input id="buffalo_count" name="buffalo_count" type="text" required="required" />
+                <label for="ox_count">Ox</label>
+                <input id="ox_count" name="ox_count" type="text" required="required" />
+                <label for="cock_count">Cock</label>
+                <input id="cock_count" name="cock_count" type="text" required="required" />
+                <label for="hen_count">Hen</label>
+                <input id="hen_count" name="hen_count" type="text" required="required" />
+                <label for="sheep_count">Sheep</label>
+                <input id="sheep_count" name="sheep_count" type="text" required="required" />
+                <label for="goat_count">Goats</label>
+                <input id="goat_count" name="goat_count" type="text" required="required" />
+                <label for="other_count">Others</label>
+                <input id="other_count" name="other_count" type="text" required="required" />
                 
             </fieldset>
         </section>
@@ -150,3 +194,50 @@ function attach_delete(){
     </form>
 </main>
 <% include ./partials/footer %>
+
+<script type="text/javascript">
+    var lcCount=0;
+    var bcCount=0;
+    $('label[for="total_land_query2"]').css("display","none");
+    $('#total_land_query2').css("display","none");
+    $('#add_land_clone').on('click', function(){
+        lcCount++;
+        $("#land_clonable").clone().insertAfter("#land_clonable").attr('id','cloned_land'+lcCount);
+    });
+    $('#remove_land_clone').on('click',function(){
+        if(lcCount != 0){
+            $("#cloned_land"+lcCount).remove();
+        }
+    });
+    $('#add_bank_clone').on('click', function(){
+        bcCount++;
+        $("#bank_clonable").clone().insertAfter("#bank_clonable").attr('id','cloned_bank'+bcCount);
+    });
+    $('#remove_bank_clone').on('click',function(){
+        if(bcCount != 0){
+            $("#cloned_bank"+bcCount).remove();
+        }
+    });
+    $('#land_details').on('change', function() {
+        if($('#land_details').val()=='irrigated'){
+            $('label[for="total_land_query"]').html("Total Irrigated");
+            $('label[for="total_land_query2"]').css("display","none");
+            $('#total_land_query2').css("display","none");
+        }
+        if($('#land_details').val()=='rain_fed'){
+            $('label[for="total_land_query"]').html("Total Rain Fed");
+            $('label[for="total_land_query2"]').css("display","none");
+            $('#total_land_query2').css("display","none");
+        }
+        if($('#land_details').val()=='lease'){
+            $('label[for="total_land_query"]').html("Total Under Lease");
+            $('label[for="total_land_query2"]').css("display","none");
+            $('#total_land_query2').css("display","none");
+        }
+        if($('#land_details').val()=='leased_out'){
+            $('label[for="total_land_query"]').html("Total Leased Out");
+            $('label[for="total_land_query2"]').css("display","block");
+            $('#total_land_query2').css("display","inline-block");
+        }
+    });
+</script>

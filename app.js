@@ -11,7 +11,7 @@ var path = require('path'),
 var bodyParser = require('body-parser');    // pull information from HTML POST (express4)
 var methodOverride = require('method-override'); // simulate DELETE and PUT (express4)
 var ejs  = require('ejs');
-mongoose.connect("mongodb://razor:hailhydra@ds243418.mlab.com:43418/mtaiitsubs");
+mongoose.connect("mongodb://localhost/farmer_portal", {useMongoClient: true});
 var LocalStrategy = require("passport-local");
 // var passportLocalMongoose = require("passport-local-mongoose");
 app.use(morgan('dev'));                                         // log every request to the console           // parse application/x-www-form-urlencoded
@@ -130,11 +130,7 @@ var farmerInfo = mongoose.model('farmerinfo', {
     },
     family_occupation: String,
     annual_income: String,
-    house_status: {
-        moulded: String,
-        roof_hut: String,
-        rented: String
-    },
+    house_status: String,
     mobile: String,
     email: String,
     aadhar: String,
@@ -145,44 +141,14 @@ var farmerInfo = mongoose.model('farmerinfo', {
         ifsc: String
     },
     land_details: {
-        irrigated: {
+        source: String,
             extent: String,
             survey_no: String,
             village: String,
             name: String,
-            total_irrigated: String
-        },
-        rain_fed: {
-            extent: String,
-            survey_no: String,
-            village: String,
-            name: String,
-            total_rain_fed: String
-        },
-        lease: {
-            extent: String,
-            survey_no: String,
-            village: String,
-            name: String,
-            total_under_lease: String
-        },
-        leased_out: {
-            extent: String,
-            survey_no: String,
-            village: String,
-            name: String,
-            total_leased_out: String,
-            total_land_holding: String
-        }
+            total_on_source: String
     },
-    irrigation_source: {
-        borewell: String,
-        depth_borewell: String,
-        yield: String,
-        lakeorpond: String,
-        stream: String,
-        rain_water_harvesting: String
-    },
+    irrigation_source: String,
     domestic_animals: {
         cows: String,
         calves: String,
@@ -317,6 +283,18 @@ app.post("/farmer/new",isLoggedIn  ,function(req, res){
     //         console.error("Only .png files are allowed!");
     //     });
     // }
+    var domestic_animals ={
+        cow:req.body.cow_count,
+        calves:req.body.calf_count,
+        buffalo:req.body.buffalo_count,
+        ox:req.body.ox_count,
+        cock:req.body.cock_count,
+        hen:req.body.hen_count,
+        sheep:req.body.sheep_count,
+        goat:req.body.goat_count,
+        others:req.body.others_count
+    };
+
     farmerInfo.create(
         {
             name: req.body.name,
@@ -331,7 +309,7 @@ app.post("/farmer/new",isLoggedIn  ,function(req, res){
             annual_income: req.body.annual_income,
             bank_details: req.body.bank_details,
             house_status: req.body.house_status,
-            domestic_animals: req.body.domestic_animals
+            domestic_animals: domestic_animals
         }
         , function(err, review) {
             if (err) {
