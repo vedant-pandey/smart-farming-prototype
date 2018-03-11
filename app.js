@@ -146,7 +146,8 @@ var farmerInfo = mongoose.model('farmerinfo', {
         survey_no: String,
         village: String,
         name: String,
-        total_on_source: String
+        total_on_source: String,
+        total_land_holding: String
     },
     irrigation_source: String,
     domestic_animals: {
@@ -283,6 +284,38 @@ app.post("/farmer/new",isLoggedIn  ,function(req, res){
     //         console.error("Only .png files are allowed!");
     //     });
     // }
+    var family = {
+        male: req.body.family_male,
+        female: req.body.family_female,
+        children: req.body.family_children
+    };
+    var working_member = {
+        male:req.body.working_member_male,
+        female:req.body.working_member_female
+    };
+    var workers_required = {
+        numb:req.body.workers_required_numb,
+        excess:req.body.workers_required_excess,
+        short_fall:req.body.workers_required_short_fall
+    };
+    var sericulture = {
+        extent_mulbery_cultivation: req.body.extent_mulbery_cultivation,
+        silk_worm_rearing_house: req.body.silk_worm_rearing_house,
+        mulbery_self_consumption: req.body.mulbery_self_consumption,
+        mulbery_selling: req.body.mulbery_selling
+    };
+    var farming_machines = {
+        tractor: req.body.farming_machines_tractor,
+        power_tiller: req.body.farming_machines_power_tiller,
+        plougher: req.body.farming_machines_plougher,
+        rotomator: req.body.farming_machines_rotomator,
+        bulloc_cart: req.body.farming_machines_bulloc_cart,
+        spraying_machine: req.body.farming_machines_spraying_machine,
+        sprinkler: req.body.farming_machines_sprinkler,
+        drip_irrigation: req.body.farming_machines_drip_irrigation,
+        source_farm_equipments: req.body.farming_machines_source_farm_equipments,
+        willing_to_rent_farm_equipments: req.body.farming_machines_willing_to_rent_farm_equipments
+    };
     var domestic_animals ={
         cow:req.body.cow_count,
         calves:req.body.calf_count,
@@ -300,12 +333,48 @@ app.post("/farmer/new",isLoggedIn  ,function(req, res){
         survey_no: req.body.land_survey_no,
         village: req.body.land_village,
         name: req.body.land_name,
-        total_on_source: req.body.total_land_query
-    }
+        total_on_source: req.body.total_land_query,
+        total_land_holding: req.body.total_land_holding
+    };
+    var poly_house= {
+        extent:req.body.poly_house_extent
+    };
+    var crop_details = {
+        extent: req.body.crop_details_extent,
+        crop: req.body.crop_details_crop,
+        irrigated: req.body.crop_details_irrigated,
+        rain_fed: req.body.crop_details_rain_fed,
+        species: req.body.crop_details_species,
+        date_seeding: req.body.crop_details_date_seeding,
+        expected_date_of_yield: req.body.crop_details_expected_date_of_yield,
+        expected_production: req.body.crop_details_expected_production,
+        unit: req.body.crop_details_unit,
+        soil_type: req.body.crop_details_soil_type,
+        soil_test: req.body.crop_details_soil_test,
+        ph_value: req.body.crop_details_ph_value,
+        organic_carbon: req.body.crop_details_organic_carbon,
+        n: req.body.crop_details_n,
+        p: req.body.crop_details_p,
+        k: req.body.crop_details_k,
+        others: req.body.crop_details_others
+    };
+    var sales = {
+        local: req.body.sales_local,
+        village_fairs: req.body.sales_village_fairs,
+        apmc: req.body.sales_apmc
+    };
+    var bank={
+        branch: req.body.bank_branch,
+        loan_amount: req.body.bank_loan_amount,
+        purpose: req.body.bank_purpose,
+        repayment_date: req.body.bank_repayment_date,
+    };
+
 
     farmerInfo.create(
         {
             name: req.body.name,
+            age: req.body.age,
             mobile: req.body.mobile,
             email: req.body.email,
             fhname: req.body.fhname,
@@ -314,11 +383,27 @@ app.post("/farmer/new",isLoggedIn  ,function(req, res){
             education: req.body.education,
             hobli: req.body.hobli,
             aadhar: req.body.aadhar,
+            family: family,
+            working_member: working_member,
+            workers_required: workers_required,
+            family_occupation: req.body.family_occupation,
             annual_income: req.body.annual_income,
-            bank_details: req.body.bank_details,
             house_status: req.body.house_status,
+            bank_details: req.body.bank_details,
+            land_details: land_det,
+            irrigation_source: req.body.irrigation_source,
             domestic_animals: domestic_animals,
-            land_details: land_det
+            sericulture: sericulture,
+            farming_machines: farming_machines,
+            poly_house: poly_house,
+            crop_details: crop_details,
+            sales: sales,
+            willing_to_sell_online: req.body.willing_to_sell_online,
+            farming_suggestions: req.body.farming_suggestions,
+            nursery: req.body.nursery,
+            bank: bank,
+            any_other_information: req.body.any_other_information,
+            data_collected_by: req.body.data_collected_by
         }
         , function(err, review) {
             if (err) {

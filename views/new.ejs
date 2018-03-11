@@ -54,79 +54,80 @@ function attach_delete(){
             <fieldset>
                 <legend>Personal Information</legend>
                 <label for="name">Name</label>
-                <input id="name" name="name" type="text" required="required" />
+                <input id="name" name="name" type="text"/>
+                <label for="age">Age</label>
+                <input id="age" name="age" type="text"/>
                 <label for="email">Email</label>
-                <input id="email" name="email" type="email" required="required" />
+                <input id="email" name="email" type="text"/>
                 <label for="mobile">Phone Number</label>
-                <input id="mobile" name="mobile" type="tel" required="required"/>
+                <input id="mobile" name="mobile" type="tel"/>
                 <label for="fhname">Father / Husband's Name</label>
-                <input id="fhname" name="fhname" type="text" required="required" />
+                <input id="fhname" name="fhname" type="text"/>
                 <label for="village">Village</label>
-                <input id="village" name="village" type="text" required="required" />
+                <input id="village" name="village" type="text"/>
                 <label for="taluq">Taluq</label>
-                <input id="taluq" name="taluq" type="text" required="required" />
+                <input id="taluq" name="taluq" type="text"/>
                 <label for="education">Education</label>
-                <input id="education" name="education" type="text" required="required" />
+                <input id="education" name="education" type="text"/>
                 <label for="hobli">Hobli</label>
-                <input id="hobli" name="hobli" type="text" required="required" />
+                <input id="hobli" name="hobli" type="text"/>
                 <label for="aadhar">Aadhar</label>
-                <input id="aadhar" name="aadhar" type="text" minlength="12" maxlength="12" pattern="[0-9]{12}" required="required" />
+                <input id="aadhar" name="aadhar" type="text"/>
                 <label for="annual_income">Annual Income</label>
-                <input id="annual_income" name="annual_income" type="text" required="required" />
+                <input id="annual_income" name="annual_income" type="text"/>
+                <label for="family_occupation">Family Occupation</label>
+                <input id="family_occupation" name="family_occupation" type="text"/>
             </fieldset>
         </section>
         <section data-step="2">
-            <fieldset>
-                <legend>Bank Details</legend>
-                <label for="bank_details[bank_name]">Bank Name</label>
-                <input id="bank_details[bank_name]" name="bank_details[bank_name]" type="text" />
-                <label for="bank_details[acc_no]">Account Number</label>
-                <input id="bank_details[acc_no]" name="bank_details[acc_no]" type="text" />
-                <label for="bank_details[branch_name]">Branch Name</label>
-                <input id="bank_details[branch_name]" name="bank_details[branch_name]" type="text" />
-                <label for="bank_details[ifsc]">IFSC Code</label>
-                <input id="bank_details[ifsc]" name="bank_details[ifsc]" type="text" />
-                <hr>
-                <div id="bank_clonable" style="display:none">
-                        <label for="bank_details[bank_name]">Bank Name</label>
-                        <input id="bank_details[bank_name]" name="bank_details[bank_name]" type="text" />
-                        <label for="bank_details[acc_no]">Account Number</label>
-                        <input id="bank_details[acc_no]" name="bank_details[acc_no]" type="text" />
-                        <label for="bank_details[branch_name]">Branch Name</label>
-                        <input id="bank_details[branch_name]" name="bank_details[branch_name]" type="text" />
-                        <label for="bank_details[ifsc]">IFSC Code</label>
-                        <input id="bank_details[ifsc]" name="bank_details[ifsc]" type="text" />
-                        <hr>
-                </div>
-                <button id="add_bank_clone"><i class="fa fa-plus"></i></button>
-                <button id="remove_bank_clone"><i class="fa fa-minus"></i></button>
-                <div class="form-group dynamic-element" style="display:none">
-                    <div class="row">
-                    <div class="col-md-2"></div>
-                    <!-- Replace these fields -->
-                    <div class="col-md-4">
-                      <select id="profesor" name="profesor[]" class="form-control">
-                        <option value="1">Bank Account</option>
-                      </select>
-                    </div>
-                    <div class="col-md-3">
-                      <select id="rol" name="rol[]" class="form-control">
-                        <option>Rol</option>
-                        <option value="1">Guia</option>
-                        <option value="2">Co-Guia</option>
-                        <option value="3">Presidente</option>
-                        <option value="4">Invitado</option>
-                      </select>
-                    </div>
-                      <!-- End of fields-->
-                      <div class="col-md-1">
-                        <p class="delete">x</p>
-                      </div>
-                    </div>
-                  </div>
-            </fieldset>
+                <fieldset>
+                    <legend>Extra Information</legend>
+                    <label for="family_male">Male in Family</label>
+                    <input id="family_male" name="family_male" type="text"/>
+                    <label for="family_female">Female in Family</label>
+                    <input id="family_female" name="family_female" type="text"/>
+                    <label for="family_children">Children in Family</label>
+                    <input id="family_children" name="family_children" type="text"/>
+                    <label for="working_member_male">Working Male</label>
+                    <input id="working_member_male" name="working_member_male" type="text"/>
+                    <label for="working_member_female">Working Female</label>
+                    <input id="working_member_female" name="working_member_female" type="text"/>
+                    <label for="workers_required_numb">No of Workers Required</label>
+                    <input id="workers_required_numb" name="workers_required_numb" type="text"/>
+                    <label for="workers_required_excess">Excess of Workers</label>
+                    <input id="workers_required_excess" name="workers_required_excess" type="text"/>
+                    <label for="workers_required_short_fall">Shortfall of Workers</label>
+                    <input id="workers_required_short_fall" name="workers_required_short_fall" type="text"/>
+                </fieldset>
         </section>
         <section data-step="3">
+                <fieldset>
+                    <legend>Bank Details</legend>
+                    <label for="bank_details[bank_name]">Bank Name</label>
+                    <input id="bank_details[bank_name]" name="bank_details[bank_name]" type="text" />
+                    <label for="bank_details[acc_no]">Account Number</label>
+                    <input id="bank_details[acc_no]" name="bank_details[acc_no]" type="text" />
+                    <label for="bank_details[branch_name]">Branch Name</label>
+                    <input id="bank_details[branch_name]" name="bank_details[branch_name]" type="text" />
+                    <label for="bank_details[ifsc]">IFSC Code</label>
+                    <input id="bank_details[ifsc]" name="bank_details[ifsc]" type="text" />
+                    <hr>
+                    <div id="bank_clonable" style="display:none">
+                            <label for="bank_details[bank_name]">Bank Name</label>
+                            <input id="bank_details[bank_name]" name="bank_details[bank_name]" type="text" />
+                            <label for="bank_details[acc_no]">Account Number</label>
+                            <input id="bank_details[acc_no]" name="bank_details[acc_no]" type="text" />
+                            <label for="bank_details[branch_name]">Branch Name</label>
+                            <input id="bank_details[branch_name]" name="bank_details[branch_name]" type="text" />
+                            <label for="bank_details[ifsc]">IFSC Code</label>
+                            <input id="bank_details[ifsc]" name="bank_details[ifsc]" type="text" />
+                            <hr>
+                    </div>
+                    <button id="add_bank_clone"><i class="fa fa-plus"></i></button>
+                    <button id="remove_bank_clone"><i class="fa fa-minus"></i></button>
+                </fieldset>
+            </section>
+        <section data-step="4">
             <fieldset>
                 <legend>Land Details</legend>
                 <select name="land_details" id="land_details" required="required" class="form-control">
@@ -137,18 +138,20 @@ function attach_delete(){
                 </select>
 
                 <label for="land_extent">Extent</label>
-                <input id="land_extent" name="land_extent" type="text" required="required" />
+                <input id="land_extent" name="land_extent" type="text" />
                 <label for="land_survey_no">Survey Number</label>
-                <input id="land_survey_no" name="land_survey_no" type="text" required="required" />
+                <input id="land_survey_no" name="land_survey_no" type="text" />
                 <label for="land_village">Village</label>
-                <input id="land_village" name="land_village" type="text" required="required" />
+                <input id="land_village" name="land_village" type="text" />
                 <label for="land_name">Name</label>
-                <input id="land_name" name="land_name" type="text" required="required" />
+                <input id="land_name" name="land_name" type="text" />
                 <label for="total_land_query">Total Irrigated</label>
-                <input id="total_land_query" name="total_land_query" type="text" required="required" />
+                <input id="total_land_query" name="total_land_query" type="text" />
 
+                <label for="total_land_holding">Total Holding</label>
+                <input id="total_land_holding" name="total_land_holding" type="text" />
                 <label for="irrigation_source">Select Irrigation source used</label>
-                <select name="irrigation_source" id="irrigation_source" required="required" class="form-control">
+                <select name="irrigation_source" id="irrigation_source" class="form-control">
                     <option value="borewell">Borewell</option>
                     <option value="depth_borewell">Depth Borewell</option>
                     <option value="yield">Yield</option>
@@ -158,7 +161,7 @@ function attach_delete(){
                 </select>
                 <hr>
                 <div id="land_clonable" style="display:none">
-                        <select name="land_details" id="land_details" required="required" class="form-control">
+                        <select name="land_details" id="land_details" class="form-control">
                             <option value="irrigated">Irrigated</option>
                             <option value="rain_fed">Rain Fed</option>
                             <option value="lease">Lease</option>
@@ -166,18 +169,18 @@ function attach_delete(){
                         </select>
     
                         <label for="land_extent">Extent</label>
-                        <input id="land_extent" name="land_extent" type="text" required="required" />
+                        <input id="land_extent" name="land_extent" type="text" />
                         <label for="land_survey_no">Survey Number</label>
-                        <input id="land_survey_no" name="land_survey_no" type="text" required="required" />
+                        <input id="land_survey_no" name="land_survey_no" type="text" />
                         <label for="land_village">Village</label>
-                        <input id="land_village" name="land_village" type="text" required="required" />
+                        <input id="land_village" name="land_village" type="text" />
                         <label for="land_name">Name</label>
-                        <input id="land_name" name="land_name" type="text" required="required" />
+                        <input id="land_name" name="land_name" type="text" />
                         <label for="total_land_query">Total Irrigated</label>
-                        <input id="total_land_query" name="total_land_query" type="text" required="required" />
+                        <input id="total_land_query" name="total_land_query" type="text" />
     
                         <label for="irrigation_source">Select Irrigation source used</label>
-                        <select name="irrigation_source" id="irrigation_source" required="required" class="form-control">
+                        <select name="irrigation_source" id="irrigation_source" class="form-control">
                             <option value="borewell">Borewell</option>
                             <option value="depth_borewell">Depth Borewell</option>
                             <option value="yield">Yield</option>
@@ -191,11 +194,11 @@ function attach_delete(){
                 <button id="remove_land_clone"><i class="fa fa-minus"></i></button>
             </fieldset>
         </section>
-        <section data-step="4">
+        <section data-step="5">
             <fieldset>
                 <legend>House Details</legend>
                 <label for="house_status">Select House Status</label>
-                <select name="house_status" id="house_status"  required="required">
+                <select name="house_status" id="house_status" >
                     <option value="moulded">Moulded</option>
                     <option value="roof">Roof</option>
                     <option value="hut">Hut</option>
@@ -204,25 +207,146 @@ function attach_delete(){
 
                 <legend>Domestic Animals</legend>
                 <label for="cow_count">Cows</label>
-                <input id="cow_count" name="cow_count" type="text" required="required" />
+                <input id="cow_count" name="cow_count" type="text" />
                 <label for="calf_count">Calves</label>
-                <input id="calf_count" name="calf_count" type="text" required="required" />
+                <input id="calf_count" name="calf_count" type="text" />
                 <label for="buffalo_count">Buffalo</label>
-                <input id="buffalo_count" name="buffalo_count" type="text" required="required" />
+                <input id="buffalo_count" name="buffalo_count" type="text" />
                 <label for="ox_count">Ox</label>
-                <input id="ox_count" name="ox_count" type="text" required="required" />
+                <input id="ox_count" name="ox_count" type="text" />
                 <label for="cock_count">Cock</label>
-                <input id="cock_count" name="cock_count" type="text" required="required" />
+                <input id="cock_count" name="cock_count" type="text" />
                 <label for="hen_count">Hen</label>
-                <input id="hen_count" name="hen_count" type="text" required="required" />
+                <input id="hen_count" name="hen_count" type="text" />
                 <label for="sheep_count">Sheep</label>
-                <input id="sheep_count" name="sheep_count" type="text" required="required" />
+                <input id="sheep_count" name="sheep_count" type="text" />
                 <label for="goat_count">Goats</label>
-                <input id="goat_count" name="goat_count" type="text" required="required" />
+                <input id="goat_count" name="goat_count" type="text" />
                 <label for="other_count">Others</label>
-                <input id="other_count" name="other_count" type="text" required="required" />
+                <input id="other_count" name="other_count" type="text" />
                 
             </fieldset>
+        </section>
+        <section data-step="6">
+                <fieldset>
+                    <legend>Sericulture</legend>
+                    <label for="extent_mulbery_cultivation">Extent of Mulbery Cultivation</label>
+                    <input id="extent_mulbery_cultivation" name="extent_mulbery_cultivation" type="text"/>
+                    <label for="silk_worm_rearing_house">Silk Worm Rearing House</label>
+                    <input id="silk_worm_rearing_house" name="silk_worm_rearing_house" type="text"/>
+                    <label for="mulbery_self_consumption">Mulbery Self Consumption</label>
+                    <input id="mulbery_self_consumption" name="mulbery_self_consumption" type="text"/>
+                    <label for="mulbery_selling">Mulbery Selling</label>
+                    <input id="mulbery_selling" name="mulbery_selling" type="text"/>
+                </fieldset>
+        </section>
+        <section data-step="7">
+                <fieldset>
+                    <legend>Farming Machines</legend>
+                    <label for="farming_machines_tractor">Tractor</label>
+                    <input id="farming_machines_tractor" name="farming_machines_tractor" type="text"/>
+                    <label for="farming_machines_power_tiller">Power Tiller</label>
+                    <input id="farming_machines_power_tiller" name="farming_machines_power_tiller" type="text"/>
+                    <label for="farming_machines_plougher">Plougher</label>
+                    <input id="farming_machines_plougher" name="farming_machines_plougher" type="text"/>
+                    <label for="farming_machines_rotomator">Rotomator</label>
+                    <input id="farming_machines_rotomator" name="farming_machines_rotomator" type="text"/>
+                    <label for="farming_machines_bulloc_cart">Bulloc Cart</label>
+                    <input id="farming_machines_bulloc_cart" name="farming_machines_bulloc_cart" type="text"/>
+                    <label for="farming_machines_spraying_machine">Spraying Machine</label>
+                    <input id="farming_machines_spraying_machine" name="farming_machines_spraying_machine" type="text"/>
+                    <label for="farming_machines_sprinkler">Sprinkler</label>
+                    <input id="farming_machines_sprinkler" name="farming_machines_sprinkler" type="text"/>
+                    <label for="farming_machines_drip_irrigation">Drip Irrigation</label>
+                    <input id="farming_machines_drip_irrigation" name="farming_machines_drip_irrigation" type="text"/>
+                    <label for="farming_machines_source_farm_equipments">Source Farm Equipments</label>
+                    <input id="farming_machines_source_farm_equipments" name="farming_machines_source_farm_equipments" type="text"/>
+                    <label for="farming_machines_willing_to_rent_farm_equipments">Willing to Rent Farm Equipments</label>
+                    <input id="farming_machines_willing_to_rent_farm_equipments" name="farming_machines_willing_to_rent_farm_equipments" type="text"/>
+                    
+                    <legend>Poly House</legend>
+                    <label for="poly_house_extent">Poly House Extent</label>
+                    <input id="poly_house_extent" name="poly_house_extent" type="text"/>
+                </fieldset>
+        </section>
+        <section data-step="8">
+                <fieldset>
+                    <legend>Crop Details</legend>
+                    <label for="crop_details_extent">Extent</label>
+                    <input id="crop_details_extent" name="crop_details_extent" type="text"/>
+                    <label for="crop_details_crop">Crop</label>
+                    <input id="crop_details_crop" name="crop_details_crop" type="text"/>
+                    <label for="crop_details_irrigated">Irrigated</label>
+                    <input id="crop_details_irrigated" name="crop_details_irrigated" type="text"/>
+                    <label for="crop_details_rain_fed">Rain Fed</label>
+                    <input id="crop_details_rain_fed" name="crop_details_rain_fed" type="text"/>
+                    <label for="crop_details_species">Species</label>
+                    <input id="crop_details_species" name="crop_details_species" type="text"/>
+                    <label for="crop_details_date_seeding">Date Seeding</label>
+                    <input id="crop_details_date_seeding" name="crop_details_date_seeding" type="text"/>
+                    <label for="crop_details_expected_date_of_yield">Expected Date of Yield</label>
+                    <input id="crop_details_expected_date_of_yield" name="crop_details_expected_date_of_yield" type="text"/>
+                    <label for="crop_details_expected_production">Expected Production</label>
+                    <input id="crop_details_expected_production" name="crop_details_expected_production" type="text"/>
+                    <label for="crop_details_unit">Unit</label>
+                    <input id="crop_details_unit" name="crop_details_unit" type="text"/>
+                    <label for="crop_details_soil_type">Soil Type</label>
+                    <input id="crop_details_soil_type" name="crop_details_soil_type" type="text"/>
+                    <label for="crop_details_soil_test">Soil Test</label>
+                    <input id="crop_details_soil_test" name="crop_details_soil_test" type="text"/>
+                    <label for="crop_details_ph_value">pH Value</label>
+                    <input id="crop_details_ph_value" name="crop_details_ph_value" type="text"/>
+                    <label for="crop_details_organic_carbon">Organic Carbon</label>
+                    <input id="crop_details_organic_carbon" name="crop_details_organic_carbon" type="text"/>
+                    <label for="crop_details_n">N</label>
+                    <input id="crop_details_n" name="crop_details_n" type="text"/>
+                    <label for="crop_details_p">P</label>
+                    <input id="crop_details_p" name="crop_details_p" type="text"/>
+                    <label for="crop_details_k">K</label>
+                    <input id="crop_details_k" name="crop_details_k" type="text"/>
+                    <label for="crop_details_others">Others</label>
+                    <input id="crop_details_others" name="crop_details_others" type="text"/>
+                </fieldset>
+        </section>
+        <section data-step="9">
+                <fieldset>
+                    <legend>Sales</legend>
+                    <label for="sales_local">Local</label>
+                    <input id="sales_local" name="sales_local" type="text"/>
+                    <label for="sales_village_fairs">Village Fairs</label>
+                    <input id="sales_village_fairs" name="sales_village_fairs" type="text"/>
+                    <label for="sales_apmc">APMC</label>
+                    <input id="sales_apmc" name="sales_apmc" type="text"/>
+                    <label for="nursery">Nursery</label>
+                    <input id="nursery" name="nursery" type="text"/>
+                    <label for="willing_to_sell_online">Willing to sell online</label>
+                    <input id="willing_to_sell_online" name="willing_to_sell_online" type="text"/>
+                </fieldset>
+        </section>
+        <section data-step="10">
+                <fieldset>
+                    <legend>Bank Loan</legend>
+                    <label for="bank_branch">Branch</label>
+                    <input id="bank_branch" name="bank_branch" type="text"/>
+                    <label for="bank_loan_amount">Loan Amount</label>
+                    <input id="bank_loan_amount" name="bank_loan_amount" type="text"/>
+                    <label for="bank_purpose">Purpose</label>
+                    <input id="bank_purpose" name="bank_purpose" type="text"/>
+                    <label for="bank_repayment_date">Repayment Date</label>
+                    <input id="bank_repayment_date" name="bank_repayment_date" type="text"/>
+                </fieldset>
+        </section>
+        
+        <section data-step="11">
+                <fieldset>
+                    <legend>Feedback</legend>
+                    <label for="any_other_information">Any Other Information</label>
+                    <input id="any_other_information" name="any_other_information" type="text"/>
+                    <label for="data_collected_by">Data Collected By</label>
+                    <input id="data_collected_by" name="data_collected_by" type="text"/>
+                    <label for="farming_suggestions">Farmer Suggestions</label>
+                    <input id="farming_suggestions" name="farming_suggestions" type="text"/>
+                </fieldset>
         </section>
         <button class="button button-outline">Back</button>
         <input class="button button-primary" type="submit" value="Send" />
