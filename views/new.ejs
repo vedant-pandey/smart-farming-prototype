@@ -110,7 +110,7 @@ function attach_delete(){
                     <label for="bank_details[branch_name]">Branch Name</label>
                     <input id="bank_details[branch_name]" name="bank_details[branch_name]" type="text" />
                     <label for="bank_details[ifsc]">IFSC Code</label>
-                    <input id="bank_details[ifsc]" name="bank_details[ifsc]" type="text" />
+                    <input class="bank_details[ifsc]" name="bank_details[ifsc]" type="text" />
                     <hr>
                     <div id="bank_clonable" style="display:none">
                             <label for="bank_details[bank_name]">Bank Name</label>
@@ -120,11 +120,11 @@ function attach_delete(){
                             <label for="bank_details[branch_name]">Branch Name</label>
                             <input id="bank_details[branch_name]" name="bank_details[branch_name]" type="text" />
                             <label for="bank_details[ifsc]">IFSC Code</label>
-                            <input id="bank_details[ifsc]" name="bank_details[ifsc]" type="text" />
+                            <input class="bank_details[ifsc]" name="bank_details[ifsc]" type="text" />
                             <hr>
                     </div>
-                    <button id="add_bank_clone"><i class="fa fa-plus"></i></button>
-                    <button id="remove_bank_clone"><i class="fa fa-minus"></i></button>
+                    <div style="display: inline-block; color: #fff; background: #9b4dca; width: 9.5rem; padding: 8px 40px; height:  3.8rem; border-radius: .4rem;" id="add_bank_clone"><i class="fa fa-plus"></i></div>
+                    <div style="display: inline-block; color: #fff; background: #9b4dca; width: 9.5rem; padding: 8px 40px; height:  3.8rem; border-radius: .4rem;" id="remove_bank_clone"><i class="fa fa-minus"></i></div>
                 </fieldset>
             </section>
         <section data-step="4">
@@ -190,8 +190,8 @@ function attach_delete(){
                         </select>
                         <hr>
                     </div>
-                <button id="add_land_clone"><i class="fa fa-plus"></i></button>
-                <button id="remove_land_clone"><i class="fa fa-minus"></i></button>
+                <div style="display: inline-block; color: #fff; background: #9b4dca; width: 9.5rem; padding: 8px 40px; height:  3.8rem; border-radius: .4rem;" id="add_land_clone"><i class="fa fa-plus"></i></div>
+                <div style="display: inline-block; color: #fff; background: #9b4dca; width: 9.5rem; padding: 8px 40px; height:  3.8rem; border-radius: .4rem;" id="remove_land_clone"><i class="fa fa-minus"></i></div>
             </fieldset>
         </section>
         <section data-step="5">
@@ -357,6 +357,51 @@ function attach_delete(){
 <script type="text/javascript">
     var lcCount=0;
     var bcCount=0;
+    var filterMobile = /^[0-9]{10}$/;
+    var filterAadhar = /^[0-9]{12}$/;
+    var filterEmail = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+    var mBool = false;
+    var aBool = false;
+    var eBool = false;
+    $(document).ready(function(){
+        $("input[type='submit']").attr("disabled","disabled");
+    });
+    $('#mobile').on('change paste keyup',function(){
+        if(filterMobile.test($('#mobile').val())){
+            mBool = true;
+        } else {
+            mBool = false;
+        }
+        if(mBool && eBool && aBool){
+            $("input[type=submit]").removeAttr("disabled");
+        } else {
+            $("input[type='submit']").attr("disabled","disabled");
+        }
+    });
+    $('#aadhar').on('change paste keyup',function(){
+        if(filterAadhar.test($('#aadhar').val())){
+            aBool=true;
+        } else {
+            aBool=false;
+        }
+        if(mBool && eBool && aBool){
+            $("input[type=submit]").removeAttr("disabled");
+        } else {
+            $("input[type='submit']").attr("disabled","disabled");
+        }
+    });
+    $('#email').on('change paste keyup', function(){
+        if(filterEmail.test($('#email').val())){
+            eBool=true;
+        } else {
+            eBool=false;
+        }
+        if(mBool && eBool && aBool){
+            $("input[type=submit]").removeAttr("disabled");
+        } else {
+            $("input[type='submit']").attr("disabled","disabled");
+        }
+    });
     $('label[for="total_land_query2"]').css("display","none");
     $('#total_land_query2').css("display","none");
     $('#add_land_clone').on('click', function(){
