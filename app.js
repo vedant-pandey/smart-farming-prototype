@@ -142,11 +142,11 @@ var farmerInfo = mongoose.model('farmerinfo', {
     },
     land_details: {
         source: String,
-            extent: String,
-            survey_no: String,
-            village: String,
-            name: String,
-            total_on_source: String
+        extent: String,
+        survey_no: String,
+        village: String,
+        name: String,
+        total_on_source: String
     },
     irrigation_source: String,
     domestic_animals: {
@@ -294,6 +294,14 @@ app.post("/farmer/new",isLoggedIn  ,function(req, res){
         goat:req.body.goat_count,
         others:req.body.others_count
     };
+    var land_det = {
+        source: req.body.land_details,
+        extent: req.body.land_extent,
+        survey_no: req.body.land_survey_no,
+        village: req.body.land_village,
+        name: req.body.land_name,
+        total_on_source: req.body.total_land_query
+    }
 
     farmerInfo.create(
         {
@@ -309,7 +317,8 @@ app.post("/farmer/new",isLoggedIn  ,function(req, res){
             annual_income: req.body.annual_income,
             bank_details: req.body.bank_details,
             house_status: req.body.house_status,
-            domestic_animals: domestic_animals
+            domestic_animals: domestic_animals,
+            land_details: land_det
         }
         , function(err, review) {
             if (err) {

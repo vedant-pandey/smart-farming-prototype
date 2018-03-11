@@ -78,16 +78,25 @@ function attach_delete(){
         <section data-step="2">
             <fieldset>
                 <legend>Bank Details</legend>
-                <div id="bank_clonable">
-                    <label for="bank_details[bank_name]">Bank Name</label>
-                    <input id="bank_details[bank_name]" name="bank_details[bank_name]" type="text" />
-                    <label for="bank_details[acc_no]">Account Number</label>
-                    <input id="bank_details[acc_no]" name="bank_details[acc_no]" type="text" />
-                    <label for="bank_details[branch_name]">Branch Name</label>
-                    <input id="bank_details[branch_name]" name="bank_details[branch_name]" type="text" />
-                    <label for="bank_details[ifsc]">IFSC Code</label>
-                    <input id="bank_details[ifsc]" name="bank_details[ifsc]" type="text" />
-                    <hr>
+                <label for="bank_details[bank_name]">Bank Name</label>
+                <input id="bank_details[bank_name]" name="bank_details[bank_name]" type="text" />
+                <label for="bank_details[acc_no]">Account Number</label>
+                <input id="bank_details[acc_no]" name="bank_details[acc_no]" type="text" />
+                <label for="bank_details[branch_name]">Branch Name</label>
+                <input id="bank_details[branch_name]" name="bank_details[branch_name]" type="text" />
+                <label for="bank_details[ifsc]">IFSC Code</label>
+                <input id="bank_details[ifsc]" name="bank_details[ifsc]" type="text" />
+                <hr>
+                <div id="bank_clonable" style="display:none">
+                        <label for="bank_details[bank_name]">Bank Name</label>
+                        <input id="bank_details[bank_name]" name="bank_details[bank_name]" type="text" />
+                        <label for="bank_details[acc_no]">Account Number</label>
+                        <input id="bank_details[acc_no]" name="bank_details[acc_no]" type="text" />
+                        <label for="bank_details[branch_name]">Branch Name</label>
+                        <input id="bank_details[branch_name]" name="bank_details[branch_name]" type="text" />
+                        <label for="bank_details[ifsc]">IFSC Code</label>
+                        <input id="bank_details[ifsc]" name="bank_details[ifsc]" type="text" />
+                        <hr>
                 </div>
                 <button id="add_bank_clone"><i class="fa fa-plus"></i></button>
                 <button id="remove_bank_clone"><i class="fa fa-minus"></i></button>
@@ -120,38 +129,64 @@ function attach_delete(){
         <section data-step="3">
             <fieldset>
                 <legend>Land Details</legend>
-                <div id="land_clonable">
-                    <select name="land_details" id="land_details" required="required" class="form-control">
-                        <option value="irrigated">Irrigated</option>
-                        <option value="rain_fed">Rain Fed</option>
-                        <option value="lease">Lease</option>
-                        <option value="leased_out">Leased Out</option>
-                    </select>
+                <select name="land_details" id="land_details" required="required" class="form-control">
+                    <option value="irrigated">Irrigated</option>
+                    <option value="rain_fed">Rain Fed</option>
+                    <option value="lease">Lease</option>
+                    <option value="leased_out">Leased Out</option>
+                </select>
 
-                    <label for="land_extent">Extent</label>
-                    <input id="land_extent" name="land_extent" type="text" required="required" />
-                    <label for="land_survey_no">Survey Number</label>
-                    <input id="land_survey_no" name="land_survey_no" type="text" required="required" />
-                    <label for="land_village">Village</label>
-                    <input id="land_village" name="land_village" type="text" required="required" />
-                    <label for="land_name">Name</label>
-                    <input id="land_name" name="land_name" type="text" required="required" />
-                    <label for="total_land_query">Total Irrigated</label>
-                    <input id="total_land_query" name="total_land_query" type="text" required="required" />
-                    <label for="total_land_query2">Total Land Holding</label>
-                    <input id="total_land_query2" name="total_land_query2" type="text" required="required"/>
+                <label for="land_extent">Extent</label>
+                <input id="land_extent" name="land_extent" type="text" required="required" />
+                <label for="land_survey_no">Survey Number</label>
+                <input id="land_survey_no" name="land_survey_no" type="text" required="required" />
+                <label for="land_village">Village</label>
+                <input id="land_village" name="land_village" type="text" required="required" />
+                <label for="land_name">Name</label>
+                <input id="land_name" name="land_name" type="text" required="required" />
+                <label for="total_land_query">Total Irrigated</label>
+                <input id="total_land_query" name="total_land_query" type="text" required="required" />
 
-                    <label for="irrigation_source">Select Irrigation source used</label>
-                    <select name="irrigation_source" id="irrigation_source" required="required" class="form-control">
-                        <option value="borewell">Borewell</option>
-                        <option value="depth_borewell">Depth Borewell</option>
-                        <option value="yield">Yield</option>
-                        <option value="lakeorpond">Lake/Pond</option>
-                        <option value="stream">Stream</option>
-                        <option value="rain_water_harvesting">Rain Water Harvesting</option>
-                    </select>
-                    <hr>
-                </div>
+                <label for="irrigation_source">Select Irrigation source used</label>
+                <select name="irrigation_source" id="irrigation_source" required="required" class="form-control">
+                    <option value="borewell">Borewell</option>
+                    <option value="depth_borewell">Depth Borewell</option>
+                    <option value="yield">Yield</option>
+                    <option value="lakeorpond">Lake/Pond</option>
+                    <option value="stream">Stream</option>
+                    <option value="rain_water_harvesting">Rain Water Harvesting</option>
+                </select>
+                <hr>
+                <div id="land_clonable" style="display:none">
+                        <select name="land_details" id="land_details" required="required" class="form-control">
+                            <option value="irrigated">Irrigated</option>
+                            <option value="rain_fed">Rain Fed</option>
+                            <option value="lease">Lease</option>
+                            <option value="leased_out">Leased Out</option>
+                        </select>
+    
+                        <label for="land_extent">Extent</label>
+                        <input id="land_extent" name="land_extent" type="text" required="required" />
+                        <label for="land_survey_no">Survey Number</label>
+                        <input id="land_survey_no" name="land_survey_no" type="text" required="required" />
+                        <label for="land_village">Village</label>
+                        <input id="land_village" name="land_village" type="text" required="required" />
+                        <label for="land_name">Name</label>
+                        <input id="land_name" name="land_name" type="text" required="required" />
+                        <label for="total_land_query">Total Irrigated</label>
+                        <input id="total_land_query" name="total_land_query" type="text" required="required" />
+    
+                        <label for="irrigation_source">Select Irrigation source used</label>
+                        <select name="irrigation_source" id="irrigation_source" required="required" class="form-control">
+                            <option value="borewell">Borewell</option>
+                            <option value="depth_borewell">Depth Borewell</option>
+                            <option value="yield">Yield</option>
+                            <option value="lakeorpond">Lake/Pond</option>
+                            <option value="stream">Stream</option>
+                            <option value="rain_water_harvesting">Rain Water Harvesting</option>
+                        </select>
+                        <hr>
+                    </div>
                 <button id="add_land_clone"><i class="fa fa-plus"></i></button>
                 <button id="remove_land_clone"><i class="fa fa-minus"></i></button>
             </fieldset>
@@ -202,21 +237,34 @@ function attach_delete(){
     $('#total_land_query2').css("display","none");
     $('#add_land_clone').on('click', function(){
         lcCount++;
-        $("#land_clonable").clone().insertAfter("#land_clonable").attr('id','cloned_land'+lcCount);
+        if(lcCount == 1){
+            $("#land_clonable").clone().insertAfter("#land_clonable").attr('id','cloned_land'+lcCount).css('display','block');
+        }else{
+            var lastL=lcCount-1;
+            $("#land_clonable").clone().insertAfter("#cloned_land"+lastL).attr('id','cloned_land'+lcCount).css('display','block');
+
+        }
     });
     $('#remove_land_clone').on('click',function(){
         if(lcCount != 0){
             $("#cloned_land"+lcCount).remove();
         }
+        lcCount--;
     });
     $('#add_bank_clone').on('click', function(){
         bcCount++;
-        $("#bank_clonable").clone().insertAfter("#bank_clonable").attr('id','cloned_bank'+bcCount);
+        if(bcCount == 1){
+            $("#bank_clonable").clone().insertAfter("#bank_clonable").attr('id','cloned_bank'+bcCount).css('display','block');
+        }else{
+            var lastB = bcCount-1;
+            $("#bank_clonable").clone().insertAfter("#cloned_bank"+lastB).attr('id','cloned_bank'+bcCount).css('display','block');
+        }
     });
     $('#remove_bank_clone').on('click',function(){
         if(bcCount != 0){
             $("#cloned_bank"+bcCount).remove();
         }
+        bcCount--;
     });
     $('#land_details').on('change', function() {
         if($('#land_details').val()=='irrigated'){
