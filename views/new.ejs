@@ -363,6 +363,7 @@ function attach_delete(){
     var mBool = false;
     var aBool = false;
     var eBool = false;
+    var confBool = false;
     $(document).ready(function(){
         $("input[type='submit']").attr("disabled","disabled");
     });
@@ -376,6 +377,27 @@ function attach_delete(){
             $("input[type=submit]").removeAttr("disabled");
         } else {
             $("input[type='submit']").attr("disabled","disabled");
+        }
+    });
+    $('#email').on('blur',function(){
+        if(!eBool && !confBool){
+            confBool = confirm("Enter a valid email address!");
+        } else {
+            confBool = false;
+        }
+    });
+    $('#mobile').on('blur',function(){
+        if(!mBool && !confBool){
+            confBool = confirm("Enter a valid mobile number!");
+        } else {
+            confBool = false;
+        }
+    });
+    $('#aadhar').on('blur',function(){
+        if(!aBool && !confBool){
+            confBool = confirm("Enter a valid aadhar number!");
+        } else {
+            confBool = false;
         }
     });
     $('#aadhar').on('change paste keyup',function(){
