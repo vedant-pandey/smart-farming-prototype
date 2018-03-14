@@ -110,8 +110,9 @@ function isAdmin(req, res, next){
         } else {
             res.redirect("/");
         }
-    }
+    } else {
     res.redirect("/login");
+    }
 }
 // module.exports = mongoose.model("User", User);
 
