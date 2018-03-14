@@ -81,7 +81,9 @@
                         <li>
                             <a href="/" >Home</a>
                         </li> 
-                        <li><a href="/farmer">Farmers</a></li>
+                        <%  if(currentUser) {if(role==1) { %>
+                            <li><a href="/farmer">Farmers</a></li>
+                        <% }} %>
                         
                         <!-- <li><a href="#">Contact Us</a></li>     -->
                         <!-- <li><a href="#">About Us</a></li> -->

@@ -42,6 +42,9 @@ app.use(passport.session());
 passport.use(new LocalStrategy(User.authenticate()));
 app.use(function(req, res, next){
     res.locals.currentUser = req.user;
+    if (req.user) {
+        res.locals.role = req.user['role'];
+        }
   //  res.locals.error = req.flash("error");
  //   res.locals.success = req.flash("success");
     next();
@@ -100,7 +103,16 @@ function isLoggedIn(req, res, next){
      res.redirect("/login");
 }
  
-
+function isAdmin(req, res, next){
+    if(req.isAuthenticated()){
+        if (req.user['role']==1){
+            return next();
+        } else {
+            res.redirect("/");
+        }
+    }
+    res.redirect("/login");
+}
 // module.exports = mongoose.model("User", User);
 
 var farmerInfo = mongoose.model('farmerinfo', {
@@ -216,8 +228,8 @@ var farmerInfo = mongoose.model('farmerinfo', {
         repayment_date: String
     },
     any_other_information: String,
-    data_collected_by: String
-    
+    data_collected_by: String,
+    scifi_farming: String
 });
 
 app.get("/", function(req, res){
@@ -236,7 +248,7 @@ app.get("/", function(req, res){
 //     }
 // });
 
-app.get("/farmer", isLoggedIn ,function(req, res){
+app.get("/farmer", isAdmin ,function(req, res){
     farmerInfo.find({}, function(err, allFarmerInfo){
         if (err) {
             console.log("Error");
@@ -246,11 +258,11 @@ app.get("/farmer", isLoggedIn ,function(req, res){
     });
 });
 
-app.get("/farmer/new",isLoggedIn , function(req, res){
+app.get("/farmer/new", isLoggedIn, function(req, res){
     res.render("new");
 });
 
-app.get("/farmer/:id", isLoggedIn ,function(req, res){
+app.get("/farmer/:id", isAdmin ,function(req, res){
     farmerInfo.findById(req.params.id, function(err, foundFarmerInfo){
         if (err) {
             console.log(err);
@@ -403,7 +415,8 @@ app.post("/farmer/new",isLoggedIn  ,function(req, res){
             nursery: req.body.nursery,
             bank: bank,
             any_other_information: req.body.any_other_information,
-            data_collected_by: req.body.data_collected_by
+            data_collected_by: req.body.data_collected_by,
+            scifi_farming: req.body.scifi_farming
         }
         , function(err, review) {
             if (err) {
