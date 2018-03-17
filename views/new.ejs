@@ -55,22 +55,22 @@ function attach_delete(){
                 <legend>Personal Information</legend>
                 <label for="name">Name</label>
                 <input id="name" name="name" type="text"/>
-                <label for="age">Age</label>
-                <input id="age" name="age" type="text"/>
-                <label for="email">Email</label>
-                <input id="email" name="email" type="text"/>
-                <label for="mobile">Phone Number</label>
-                <input id="mobile" name="mobile" type="tel"/>
                 <label for="fhname">Father / Husband's Name</label>
                 <input id="fhname" name="fhname" type="text"/>
                 <label for="village">Village</label>
                 <input id="village" name="village" type="text"/>
-                <label for="taluq">Taluq</label>
-                <input id="taluq" name="taluq" type="text"/>
-                <label for="education">Education</label>
-                <input id="education" name="education" type="text"/>
                 <label for="hobli">Hobli</label>
                 <input id="hobli" name="hobli" type="text"/>
+                <label for="taluq">Taluq</label>
+                <input id="taluq" name="taluq" type="text"/>
+                <label for="age">Age</label>
+                <input id="age" name="age" type="text"/>
+                <label for="education">Education</label>
+                <input id="education" name="education" type="text"/>
+                <label for="email">Email</label>
+                <input id="email" name="email" type="text"/>
+                <label for="mobile">Phone Number</label>
+                <input id="mobile" name="mobile" type="tel"/>
                 <label for="aadhar">Aadhar</label>
                 <input id="aadhar" name="aadhar" type="text"/>
                 <label for="annual_income">Annual Income</label>
@@ -81,7 +81,6 @@ function attach_delete(){
                 <label for="house_status">Select House Status</label>
                 <select name="house_status" id="house_status" >
                     <option value="moulded">Moulded</option>
-                    <option value="roof">Roof</option>
                     <option value="hut">Hut</option>
                     <option value="rented">Rented</option>
                 </select>
@@ -141,7 +140,7 @@ function attach_delete(){
                 <select name="land_details" id="land_details" required="required" class="form-control">
                     <option value="irrigated">Irrigated</option>
                     <option value="rain_fed">Rain Fed</option>
-                    <option value="lease">Lease</option>
+                    <option value="lease">Under Lease</option>
                     <option value="leased_out">Leased Out</option>
                 </select>
 
@@ -345,11 +344,18 @@ function attach_delete(){
                     <input id="sales_apmc" name="sales_apmc" type="text"/>
                     <label for="willing_to_sell_online">Willing to sell online</label>
                     <input id="willing_to_sell_online" name="willing_to_sell_online" type="text"/>
+                    <label for="scifi_farming">Would you like to have Scientific Farming ?</label>
+                    <select name="scifi_farming" id="scifi_farming" class="form-control">
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                    </select>
                 </fieldset>
         </section>
         <section data-step="10">
                 <fieldset>
                     <legend>Bank Loan</legend>
+                    <label for="bank_bank_name">Bank Name</label>
+                    <input id="bank_bank_name" name="bank_bank_name" type="text"/>
                     <label for="bank_branch">Branch</label>
                     <input id="bank_branch" name="bank_branch" type="text"/>
                     <label for="bank_loan_amount">Loan Amount</label>
@@ -369,17 +375,10 @@ function attach_delete(){
                             <option value="Yes">Yes</option>
                             <option value="No">No</option>
                     </select>
-                    <label for="scifi_farming">Would you like to have Scientific Farming ?</label>
-                    <select name="scifi_farming" id="scifi_farming" class="form-control">
-                            <option value="Yes">Yes</option>
-                            <option value="No">No</option>
-                    </select>
                     <label for="any_other_information">Any Other Information</label>
                     <input id="any_other_information" name="any_other_information" type="text"/>
                     <label for="data_collected_by">Data Collected By</label>
                     <input id="data_collected_by" name="data_collected_by" type="text"/>
-                    <label for="farming_suggestions">Farmer Suggestions</label>
-                    <input id="farming_suggestions" name="farming_suggestions" type="text"/>
                 </fieldset>
         </section>
         <button class="button button-outline">Back</button>

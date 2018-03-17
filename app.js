@@ -225,6 +225,7 @@ var farmerInfo = mongoose.model('farmerinfo', {
     bank: {
         branch: String,
         loan_amount: String,
+        bank_name: String,
         purpose: String,
         repayment_date: String
     },
@@ -380,6 +381,7 @@ app.post("/farmer/new",isLoggedIn  ,function(req, res){
         branch: req.body.bank_branch,
         loan_amount: req.body.bank_loan_amount,
         purpose: req.body.bank_purpose,
+        bank_name: req.body.bank_bank_name,
         repayment_date: req.body.bank_repayment_date,
     };
 
