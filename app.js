@@ -160,7 +160,13 @@ var farmerInfo = mongoose.model('farmerinfo', {
         village: String,
         name: String,
         total_on_source: String,
-        total_land_holding: String
+        total_land_holding: String,
+        total_land_lease: String,
+        total_land_leased_out: String,
+        total_land_rain_fed: String,
+        total_land_irrigated: String,
+        depth: String,
+        yield: String
     },
     irrigation_source: String,
     domestic_animals: {
@@ -348,7 +354,13 @@ app.post("/farmer/new",isLoggedIn  ,function(req, res){
         village: req.body.land_village,
         name: req.body.land_name,
         total_on_source: req.body.total_land_query,
-        total_land_holding: req.body.total_land_holding
+        total_land_holding: req.body.total_land_holding,
+        total_land_lease: req.body.total_land_lease,
+        total_land_leased_out: req.body.total_land_leased_out,
+        total_land_rain_fed: req.body.total_land_rain_fed,
+        total_land_irrigated: req.body.total_land_irrigated,
+        depth: req.body.depth,
+        yield: req.body.yield
     };
     var poly_house= {
         extent:req.body.poly_house_extent

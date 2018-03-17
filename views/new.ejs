@@ -90,21 +90,21 @@ function attach_delete(){
                 <fieldset>
                     <legend>Extra Information</legend>
                     <label for="family_male">Male in Family</label>
-                    <input id="family_male" name="family_male" type="text"/>
+                    <input id="family_male" name="family_male" type="number"/>
                     <label for="family_female">Female in Family</label>
-                    <input id="family_female" name="family_female" type="text"/>
+                    <input id="family_female" name="family_female" type="number"/>
                     <label for="family_children">Children in Family</label>
-                    <input id="family_children" name="family_children" type="text"/>
+                    <input id="family_children" name="family_children" type="number"/>
                     <label for="working_member_male">Working Male</label>
-                    <input id="working_member_male" name="working_member_male" type="text"/>
+                    <input id="working_member_male" name="working_member_male" type="number"/>
                     <label for="working_member_female">Working Female</label>
-                    <input id="working_member_female" name="working_member_female" type="text"/>
+                    <input id="working_member_female" name="working_member_female" type="number"/>
                     <label for="workers_required_numb">No of Workers Required</label>
-                    <input id="workers_required_numb" name="workers_required_numb" type="text"/>
+                    <input id="workers_required_numb" name="workers_required_numb" type="number"/>
                     <label for="workers_required_excess">Excess of Workers</label>
-                    <input id="workers_required_excess" name="workers_required_excess" type="text"/>
+                    <input id="workers_required_excess" name="workers_required_excess" type="number"/>
                     <label for="workers_required_short_fall">Shortfall of Workers</label>
-                    <input id="workers_required_short_fall" name="workers_required_short_fall" type="text"/>
+                    <input id="workers_required_short_fall" name="workers_required_short_fall" type="number"/>
                 </fieldset>
         </section>
         <section data-step="3">
@@ -151,26 +151,13 @@ function attach_delete(){
                 <label for="land_village">Village</label>
                 <input id="land_village" name="land_village" type="text" />
                 <label for="land_name">Name</label>
-                <input id="land_name" name="land_name" type="text" />
-                <label for="total_land_query">Total Irrigated</label>
-                <input id="total_land_query" name="total_land_query" type="text" />
-                <label for="irrigation_source">Select Irrigation source used</label>
-                <select name="irrigation_source" id="irrigation_source" class="form-control">
-                    <option value="borewell">Borewell</option>
-                    <option value="depth_borewell">Depth Borewell</option>
-                    <option value="yield">Yield</option>
-                    <option value="lakeorpond">Lake/Pond</option>
-                    <option value="stream">Stream</option>
-                    <option value="rain_water_harvesting">Rain Water Harvesting</option>
-                </select>
-                <label for="total_land_holding">Total Holding</label>
-                <input id="total_land_holding" name="total_land_holding" type="text" />
+                <input id="land_name" name="land_name" type="text" />                
                 <hr>
                 <div id="land_clonable" style="display:none">
                         <select name="land_details" id="land_details" class="form-control">
                             <option value="irrigated">Irrigated</option>
                             <option value="rain_fed">Rain Fed</option>
-                            <option value="lease">Lease</option>
+                            <option value="lease"> Under Lease</option>
                             <option value="leased_out">Leased Out</option>
                         </select>
     
@@ -182,22 +169,33 @@ function attach_delete(){
                         <input id="land_village" name="land_village" type="text" />
                         <label for="land_name">Name</label>
                         <input id="land_name" name="land_name" type="text" />
-                        <label for="total_land_query">Total Irrigated</label>
-                        <input id="total_land_query" name="total_land_query" type="text" />
-    
-                        <label for="irrigation_source">Select Irrigation source used</label>
-                        <select name="irrigation_source" id="irrigation_source" class="form-control">
-                            <option value="borewell">Borewell</option>
-                            <option value="depth_borewell">Depth Borewell</option>
-                            <option value="yield">Yield</option>
-                            <option value="lakeorpond">Lake/Pond</option>
-                            <option value="stream">Stream</option>
-                            <option value="rain_water_harvesting">Rain Water Harvesting</option>
-                        </select>
                         <hr>
                     </div>
                 <div style="display: inline-block; color: #fff; background: #9b4dca; width: 9.5rem; padding: 8px 40px; height:  3.8rem; border-radius: .4rem;" id="add_land_clone"><i class="fa fa-plus"></i></div>
                 <div style="display: inline-block; color: #fff; background: #9b4dca; width: 9.5rem; padding: 8px 40px; height:  3.8rem; border-radius: .4rem;" id="remove_land_clone"><i class="fa fa-minus"></i></div>
+                <label for="irrigation_source">Select Irrigation source used</label>
+                <select name="irrigation_source" id="irrigation_source" class="form-control">
+                    <option value="borewell">Borewell</option>
+                    <option value="depth_borewell">Depth Borewell</option>
+                    <option value="yield">Yield</option>
+                    <option value="lakeorpond">Lake/Pond</option>
+                    <option value="stream">Stream</option>
+                    <option value="rain_water_harvesting">Rain Water Harvesting</option>
+                </select>
+                <label for="depth">Depth</label>
+                <input id="depth" name="depth" type="text" />
+                <label for="yield">Yield</label>
+                <input id="yield" name="yield" type="text" />
+                <label for="total_land_query">Total Irrigated</label>
+                <input id="total_land_query" name="total_land_query" type="text" />
+                <label for="total_land_irrigated">Total Irrigated</label>
+                <input id="total_land_irrigated" name="total_land_irrigated" type="text" />
+                <label for="total_land_rain_fed">Total Rain Fed</label>
+                <input id="total_land_rain_fed" name="total_land_rain_fed" type="text" />
+                <label for="total_land_lease">Total Under Lease</label>
+                <input id="total_land_lease" name="total_land_lease" type="text" />
+                <label for="total_land_leased_out">Total Leased Out</label>
+                <input id="total_land_leased_out" name="total_land_leased_out" type="text" />
             </fieldset>
         </section>
         <section data-step="5">
@@ -229,12 +227,28 @@ function attach_delete(){
                     <legend>Sericulture</legend>
                     <label for="extent_mulbery_cultivation">Extent of Mulbery Cultivation</label>
                     <input id="extent_mulbery_cultivation" name="extent_mulbery_cultivation" type="text"/>
+
                     <label for="silk_worm_rearing_house">Silk Worm Rearing House</label>
-                    <input id="silk_worm_rearing_house" name="silk_worm_rearing_house" type="text"/>
+                    <!-- <input id="silk_worm_rearing_house" name="silk_worm_rearing_house" type="text"/> -->
+                    <select name="silk_worm_rearing_house" id="silk_worm_rearing_house" class="form-control">
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                    
                     <label for="mulbery_self_consumption">Mulbery Self Consumption</label>
-                    <input id="mulbery_self_consumption" name="mulbery_self_consumption" type="text"/>
+                    <!-- <input id="mulbery_self_consumption" name="mulbery_self_consumption" type="text"/> -->
+                    
+                    <select name="mulbery_self_consumption" id="mulbery_self_consumption" class="form-control">
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                    
                     <label for="mulbery_selling">Mulbery Selling</label>
-                    <input id="mulbery_selling" name="mulbery_selling" type="text"/>
+                    <!-- <input id="mulbery_selling" name="mulbery_selling" type="text"/> -->
+                    <select name="mulbery_selling" id="mulbery_selling" class="form-control">
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
                 </fieldset>
         </section>
         <section data-step="7">
@@ -287,8 +301,11 @@ function attach_delete(){
                     <label for="farming_machines_source_farm_equipments">Source of Farm Equipments</label>
                     <input id="farming_machines_source_farm_equipments" name="farming_machines_source_farm_equipments" type="text"/>
                     <label for="farming_machines_willing_to_rent_farm_equipments">Willing to Rent Farm Equipments</label>
-                    <input id="farming_machines_willing_to_rent_farm_equipments" name="farming_machines_willing_to_rent_farm_equipments" type="text"/>
-                    
+                    <!-- <input id="farming_machines_willing_to_rent_farm_equipments" name="farming_machines_willing_to_rent_farm_equipments" type="text"/> -->
+                    <select name="farming_machines_willing_to_rent_farm_equipments" id="farming_machines_willing_to_rent_farm_equipments" class="form-control">
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
                     <legend>Poly House (if Poly House is there, enter extent)</legend>
                     <label for="poly_house_extent">Poly House Extent</label>
                     <input id="poly_house_extent" name="poly_house_extent" type="text"/>
@@ -317,6 +334,34 @@ function attach_delete(){
                     <input id="crop_details_unit" name="crop_details_unit" type="text"/>
                     <label for="crop_details_soil_type">Soil Type</label>
                     <input id="crop_details_soil_type" name="crop_details_soil_type" type="text"/>
+                    <hr>
+                    <div id="crop_clonable" style="display:none">
+                        <label for="crop_details_crop">Crop</label>
+                        <input id="crop_details_crop" name="crop_details_crop" type="text"/>
+                        <label for="crop_details_extent">Extent</label>
+                        <input id="crop_details_extent" name="crop_details_extent" type="text"/>
+                        <label for="crop_details_irrigated">Irrigated</label>
+                        <input id="crop_details_irrigated" name="crop_details_irrigated" type="text"/>
+                        <label for="crop_details_rain_fed">Rain Fed</label>
+                        <input id="crop_details_rain_fed" name="crop_details_rain_fed" type="text"/>
+                        <label for="crop_details_species">Species</label>
+                        <input id="crop_details_species" name="crop_details_species" type="text"/>
+                        <label for="crop_details_date_seeding">Date of Seeding</label>
+                        <input id="crop_details_date_seeding" name="crop_details_date_seeding" type="text"/>
+                        <label for="crop_details_expected_date_of_yield">Expected Date of Yield</label>
+                        <input id="crop_details_expected_date_of_yield" name="crop_details_expected_date_of_yield" type="text"/>
+                        <label for="crop_details_expected_production">Expected Production</label>
+                        <input id="crop_details_expected_production" name="crop_details_expected_production" type="text"/>
+                        <label for="crop_details_unit">Unit</label>
+                        <input id="crop_details_unit" name="crop_details_unit" type="text"/>
+                        <label for="crop_details_soil_type">Soil Type</label>
+                        <input id="crop_details_soil_type" name="crop_details_soil_type" type="text"/>
+                        <hr>
+                    
+                    </div>
+                    <div style="display: inline-block; color: #fff; background: #9b4dca; width: 9.5rem; padding: 8px 40px; height:  3.8rem; border-radius: .4rem;" id="add_crop_clone"><i class="fa fa-plus"></i></div>
+                    <div style="display: inline-block; color: #fff; background: #9b4dca; width: 9.5rem; padding: 8px 40px; height:  3.8rem; border-radius: .4rem;" id="remove_crop_clone"><i class="fa fa-minus"></i></div>    
+
                     <label for="crop_details_soil_test">Soil Test</label>
                     <input id="crop_details_soil_test" name="crop_details_soil_test" type="text"/>
                     <label for="crop_details_ph_value">pH Value</label>
@@ -337,13 +382,36 @@ function attach_delete(){
                 <fieldset>
                     <legend>Sales</legend>
                     <label for="sales_local">Local</label>
-                    <input id="sales_local" name="sales_local" type="text"/>
+                    <!-- <input id="sales_local" name="sales_local" type="text"/> -->
+                    
+                    <select name="sales_local" id="sales_local" class="form-control">
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+
                     <label for="sales_village_fairs">Village Fairs</label>
-                    <input id="sales_village_fairs" name="sales_village_fairs" type="text"/>
+                    <!-- <input id="sales_village_fairs" name="sales_village_fairs" type="text"/> -->
+                    
+                    <select name="sales_village_fairs" id="sales_village_fairs" class="form-control">
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                    
                     <label for="sales_apmc">APMC</label>
-                    <input id="sales_apmc" name="sales_apmc" type="text"/>
+                    <!-- <input id="sales_apmc" name="sales_apmc" type="text"/> -->
+                    
+                    <select name="sales_apmc" id="sales_apmc" class="form-control">
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                    
                     <label for="willing_to_sell_online">Willing to sell online</label>
-                    <input id="willing_to_sell_online" name="willing_to_sell_online" type="text"/>
+                    <!-- <input id="willing_to_sell_online" name="willing_to_sell_online" type="text"/> -->
+                    
+                    <select name="willing_to_sell_online" id="willing_to_sell_online" class="form-control">
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
                     <label for="scifi_farming">Would you like to have Scientific Farming ?</label>
                     <select name="scifi_farming" id="scifi_farming" class="form-control">
                             <option value="Yes">Yes</option>
@@ -390,6 +458,7 @@ function attach_delete(){
 <script type="text/javascript">
     var lcCount=0;
     var bcCount=0;
+    var ccCount=0;
     var filterMobile = /^[0-9]{10}$/;
     var filterAadhar = /^[0-9]{12}$/;
     var filterEmail = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
@@ -446,6 +515,7 @@ function attach_delete(){
         }
     });
     $('#email').on('change paste keyup', function(){
+        if ($('#email').val()) {
         if(filterEmail.test($('#email').val())){
             eBool=true;
         } else {
@@ -455,6 +525,7 @@ function attach_delete(){
             $("input[type=submit]").removeAttr("disabled");
         } else {
             $("input[type='submit']").attr("disabled","disabled");
+        } 
         }
     });
     $('label[for="total_land_query2"]').css("display","none");
@@ -469,11 +540,30 @@ function attach_delete(){
 
         }
     });
+
+    $('#add_crop_clone').on('click', function(){
+        ccCount++;
+        if(ccCount == 1){
+            $("#crop_clonable").clone().insertAfter("#crop_clonable").attr('id','cloned_crop'+lcCount).css('display','block');
+        }else{
+            var lastC=ccCount-1;
+            $("#crop_clonable").clone().insertAfter("#cloned_crop"+lastL).attr('id','cloned_crop'+lcCount).css('display','block');
+
+        }
+    });
+
     $('#remove_land_clone').on('click',function(){
         if(lcCount != 0){
             $("#cloned_land"+lcCount).remove();
         }
         lcCount--;
+    });
+
+    $('#remove_crop_clone').on('click',function(){
+        if(ccCount != 0){
+            $("#cloned_crop"+ccCount).remove();
+        }
+        ccCount--;
     });
     $('#add_bank_clone').on('click', function(){
         bcCount++;
