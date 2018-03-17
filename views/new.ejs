@@ -538,17 +538,17 @@ function attach_delete(){
     $('#add_crop_clone').on('click', function(){
         ccCount++;
         if(ccCount == 1){
-            $("#crop_clonable").clone().insertAfter("#crop_clonable").attr('id','cloned_crop'+lcCount).css('display','block');
+            $("#crop_clonable").clone().insertAfter("#crop_clonable").attr('id','cloned_crop'+ccCount).css('display','block');
         }else{
             var lastC=ccCount-1;
-            $("#crop_clonable").clone().insertAfter("#cloned_crop"+lastL).attr('id','cloned_crop'+lcCount).css('display','block');
+            $("#crop_clonable").clone().insertAfter("#cloned_crop"+lastC).attr('id','cloned_crop'+ccCount).css('display','block');
 
         }
     });
 
     $('#remove_land_clone').on('click',function(){
         if(lcCount != 0){
-            $("#cloned_crop"+lcCount).remove();
+            $("#cloned_land"+lcCount).remove();
         }
         lcCount--;
     });
