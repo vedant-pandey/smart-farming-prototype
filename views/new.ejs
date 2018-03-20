@@ -186,28 +186,36 @@ function attach_delete(){
                 <input id="total_land_leased_out" name="total_land_leased_out" type="text" />
                 <label for="total_land_query">Total Land Holding</label>
                 <input id="total_land_query" name="total_land_query" type="text" />
-                <label for="irrigation_source">Source of Irrigation</label>
-                <select name="irrigation_source" id="irrigation_source" class="form-control">
-                    <option value="borewell">Borewell</option>
-                    <option value="lakeorpond">Lake/Pond</option>
-                    <option value="stream">Stream</option>
-                    <option value="rain_water_harvesting">Rain Water Harvesting</option>
-                </select>
-                <label for="depth">Depth</label>
-                <input id="depth" name="depth" type="text" />
-                <label for="yield">Yield</label>
-                <input id="yield" name="yield" type="text" />
+                
             </fieldset>
         </section>
         <section data-step="5">
+                <fieldset>
+                    <legend>Irrigation Source</legend>
+                        <label for="irrigation_source">Source of Irrigation</label>
+                        <select name="irrigation_source" id="irrigation_source" class="form-control">
+                            <option value="borewell">Borewell</option>
+                            <option value="lakeorpond">Lake/Pond</option>
+                            <option value="stream">Stream</option>
+                            <option value="rain_water_harvesting">Rain Water Harvesting</option>
+                        </select>
+                        <label for="depth">Depth</label>
+                        <input id="depth" name="depth" type="text" />
+                        <label for="yield">Yield</label>
+                        <input id="yield" name="yield" type="text" />
+                </fieldset>
+            </section>
+        <section data-step="6">
             <fieldset>
                 <legend>Domestic Animals</legend>
                 <label for="cow_count">Cows</label>
                 <input id="cow_count" name="cow_count" type="text" />
-                <label for="calf_count">Calves</label>
-                <input id="calf_count" name="calf_count" type="text" />
+                <label for="cow_calf_count">Calves of Cow</label>
+                <input id="cow_calf_count" name="cow_calf_count" type="text" />
                 <label for="buffalo_count">Buffalo</label>
                 <input id="buffalo_count" name="buffalo_count" type="text" />
+                <label for="buffalo_calf_count">Calves of Buffalo</label>
+                <input id="buffalo_calf_count" name="buffalo_calf_count" type="text" />
                 <label for="ox_count">Ox</label>
                 <input id="ox_count" name="ox_count" type="text" />
                 <label for="cock_count">Cock</label>
@@ -223,7 +231,7 @@ function attach_delete(){
                 
             </fieldset>
         </section>
-        <section data-step="6">
+        <section data-step="7">
                 <fieldset>
                     <legend>Sericulture</legend>
                     <label for="extent_mulbery_cultivation">Extent of Mulbery Cultivation</label>
@@ -238,7 +246,7 @@ function attach_delete(){
                     <input id="mulbery_selling" name="mulbery_selling" type="text"/>
                 </fieldset>
         </section>
-        <section data-step="7">
+        <section data-step="8">
                 <fieldset>
                     <legend>Farming Machines</legend>
                     <label for="farming_machines_tractor">Tractor</label>
@@ -303,7 +311,7 @@ function attach_delete(){
                     <input id="poly_house_extent" name="poly_house_extent" type="text"/>
                 </fieldset>
         </section>
-        <section data-step="8">
+        <section data-step="9">
                 <fieldset>
                     <legend>Crop Details</legend>
                     <label for="crop_details_crop">Crop</label>
@@ -355,7 +363,7 @@ function attach_delete(){
                     <div style="display: inline-block; color: #fff; background: #9b4dca; width: 9.5rem; padding: 8px 40px; height:  3.8rem; border-radius: .4rem;" id="remove_crop_clone"><i class="fa fa-minus"></i></div>    
                 </fieldset>
         </section>
-        <section data-step="9">
+        <section data-step="10">
             <fieldset>
                     <legend>Soil Test (Skip if not done)</legend>
                 <label for="crop_details_soil_test">Soil Test</label>
@@ -374,7 +382,7 @@ function attach_delete(){
                     <input id="crop_details_others" name="crop_details_others" type="text"/>
             </fieldset>
         </section>
-        <section data-step="10">
+        <section data-step="11">
                 <fieldset>
                     <legend>Sales</legend>
                     <label for="sales_local">Local</label>
@@ -415,7 +423,7 @@ function attach_delete(){
                     </select>
                 </fieldset>
         </section>
-        <section data-step="11">
+        <section data-step="12">
                 <fieldset>
                     <legend>Bank Loan</legend>
                     <label for="bank_bank_name">Bank Name</label>
@@ -431,7 +439,7 @@ function attach_delete(){
                 </fieldset>
         </section>
         
-        <section data-step="12">
+        <section data-step="13">
                 <fieldset>
                     <legend>Feedback</legend>
                     <label for="nursery">Nursery</label>

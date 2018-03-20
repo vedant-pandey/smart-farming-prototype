@@ -171,7 +171,8 @@ var farmerInfo = mongoose.model('farmerinfo', {
     irrigation_source: String,
     domestic_animals: {
         cows: String,
-        calves: String,
+        cow_calves: String,
+        buffalo_calves: String,
         buffalo: String,
         ox: String,
         cock: String,
@@ -338,7 +339,8 @@ app.post("/farmer/new",isLoggedIn  ,function(req, res){
     };
     var domestic_animals ={
         cow:req.body.cow_count,
-        calves:req.body.calf_count,
+        cow_calves:req.body.cow_calf_count,
+        buffalo_calves:req.body.buffalo_calf_count,
         buffalo:req.body.buffalo_count,
         ox:req.body.ox_count,
         cock:req.body.cock_count,
