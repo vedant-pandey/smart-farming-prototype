@@ -173,13 +173,7 @@ function attach_delete(){
                     </div>
                 <div style="display: inline-block; color: #fff; background: #9b4dca; width: 9.5rem; padding: 8px 40px; height:  3.8rem; border-radius: .4rem;" id="add_land_clone"><i class="fa fa-plus"></i></div>
                 <div style="display: inline-block; color: #fff; background: #9b4dca; width: 9.5rem; padding: 8px 40px; height:  3.8rem; border-radius: .4rem;" id="remove_land_clone"><i class="fa fa-minus"></i></div>
-                <label for="irrigation_source">Select Irrigation source used</label>
-                <select name="irrigation_source" id="irrigation_source" class="form-control">
-                    <option value="borewell">Borewell</option>
-                    <option value="lakeorpond">Lake/Pond</option>
-                    <option value="stream">Stream</option>
-                    <option value="rain_water_harvesting">Rain Water Harvesting</option>
-                </select>
+                
                 <label for="depth">Depth</label>
                 <input id="depth" name="depth" type="text" />
                 <label for="yield">Yield</label>
@@ -193,8 +187,15 @@ function attach_delete(){
                 <input id="total_land_lease" name="total_land_lease" type="text" />
                 <label for="total_land_leased_out">Total Land Leased Out</label>
                 <input id="total_land_leased_out" name="total_land_leased_out" type="text" />
-                <label for="total_land_query">Total Holding</label>
+                <label for="total_land_query">Total Land Holding</label>
                 <input id="total_land_query" name="total_land_query" type="text" />
+                <label for="irrigation_source">Select Irrigation source used</label>
+                <select name="irrigation_source" id="irrigation_source" class="form-control">
+                    <option value="borewell">Borewell</option>
+                    <option value="lakeorpond">Lake/Pond</option>
+                    <option value="stream">Stream</option>
+                    <option value="rain_water_harvesting">Rain Water Harvesting</option>
+                </select>
             </fieldset>
         </section>
         <section data-step="5">
