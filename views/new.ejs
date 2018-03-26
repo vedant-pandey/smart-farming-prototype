@@ -194,15 +194,16 @@ function attach_delete(){
                     <legend>Irrigation Source</legend>
                         <label for="irrigation_source">Source of Irrigation</label>
                         <select name="irrigation_source" id="irrigation_source" class="form-control">
+                            <option value="">Select an option</option>
                             <option value="borewell">Borewell</option>
                             <option value="lakeorpond">Lake/Pond</option>
                             <option value="stream">Stream</option>
-                            <option value="rain_water_harvesting">Rain Water Harvesting</option>
+                            <option value="rain_fed">Rain Fed</option>
                         </select>
-                        <label for="depth">Depth</label>
-                        <input id="depth" name="depth" type="text" />
-                        <label for="yield">Yield</label>
-                        <input id="yield" name="yield" type="text" />
+                        <label for="depth">Depth (in feet) of Borewell</label>
+                        <input id="depth" name="depth" type="text" disabled/>
+                        <label for="yield">Yield (in inches) of Borewell</label>
+                        <input id="yield" name="yield" type="text" disabled/>
                 </fieldset>
             </section>
         <section data-step="6">
@@ -584,26 +585,35 @@ function attach_delete(){
         }
         bcCount--;
     });
-    $('#land_details').on('change', function() {
-        if($('#land_details').val()=='irrigated'){
-            $('label[for="total_land_query"]').html("Total Irrigated");
-            $('label[for="total_land_query2"]').css("display","none");
-            $('#total_land_query2').css("display","none");
-        }
-        if($('#land_details').val()=='rain_fed'){
-            $('label[for="total_land_query"]').html("Total Rain Fed");
-            $('label[for="total_land_query2"]').css("display","none");
-            $('#total_land_query2').css("display","none");
-        }
-        if($('#land_details').val()=='lease'){
-            $('label[for="total_land_query"]').html("Total Under Lease");
-            $('label[for="total_land_query2"]').css("display","none");
-            $('#total_land_query2').css("display","none");
-        }
-        if($('#land_details').val()=='leased_out'){
-            $('label[for="total_land_query"]').html("Total Leased Out");
-            $('label[for="total_land_query2"]').css("display","block");
-            $('#total_land_query2').css("display","inline-block");
+    $('#irrigation_source').on('change', function(){
+        if($('#irrigation_source').val()=='borewell') {
+            $('#depth').removeAttr("disabled");
+            $('#yield').removeAttr("disabled");
+        } else {
+            $("#depth").attr("disabled", "disabled");
+            $("#yield").attr("disabled", "disabled");
         }
     });
+    // $('#land_details').on('change', function() {
+    //     if($('#land_details').val()=='irrigated'){
+    //         $('label[for="total_land_query"]').html("Total Irrigated");
+    //         $('label[for="total_land_query2"]').css("display","none");
+    //         $('#total_land_query2').css("display","none");
+    //     }
+    //     if($('#land_details').val()=='rain_fed'){
+    //         $('label[for="total_land_query"]').html("Total Rain Fed");
+    //         $('label[for="total_land_query2"]').css("display","none");
+    //         $('#total_land_query2').css("display","none");
+    //     }
+    //     if($('#land_details').val()=='lease'){
+    //         $('label[for="total_land_query"]').html("Total Under Lease");
+    //         $('label[for="total_land_query2"]').css("display","none");
+    //         $('#total_land_query2').css("display","none");
+    //     }
+    //     if($('#land_details').val()=='leased_out'){
+    //         $('label[for="total_land_query"]').html("Total Leased Out");
+    //         $('label[for="total_land_query2"]').css("display","block");
+    //         $('#total_land_query2').css("display","inline-block");
+    //     }
+    // });
 </script>
