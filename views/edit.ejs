@@ -37,10 +37,10 @@ function attach_delete(){
         <div class="container ">
             <div class="row ">
                 <div class="col-md-12 text-white text-center">
-                    <h1 class="text-uppercase u-Margin0 u-Weight700">Register</h1>
+                    <h1 class="text-uppercase u-Margin0 u-Weight700">Edit</h1>
                     <ol class="breadcrumb text-white u-MarginTop10 u-MarginBottom0">
                         <li><a href="#">Home</a></li>
-                        <li class="active"><span>Register</span></li>
+                        <li class="active"><span>Edit</span></li>
                     </ol>
                 </div>
             </div>
@@ -48,35 +48,35 @@ function attach_delete(){
     </div>
 </section>
 <main>
-    <h3>Register Farmer</h3>
-    <form method="POST" action="/farmer/new" data-step="1" id="main">
+    <h3>Edit Farmer Information</h3>
+    <form method="POST" action="/farmer/<%=farmer._id%>?_method=PUT" data-step="1" id="main">
         <section data-step="1">
             <fieldset>
                 <legend>Personal Information</legend>
                 <label for="name">Name</label>
-                <input id="name" name="name" type="text"/>
+                <input id="name" name="name" type="text" value="<%=farmer.name%>"/>
                 <label for="fhname">Father / Husband's Name</label>
-                <input id="fhname" name="fhname" type="text"/>
+                <input id="fhname" name="fhname" type="text" value="<%=farmer.fhname%>"/>
                 <label for="village">Village</label>
-                <input id="village" name="village" type="text"/>
+                <input id="village" name="village" type="text" value="<%=farmer.village%>"/>
                 <label for="hobli">Hobli</label>
-                <input id="hobli" name="hobli" type="text"/>
+                <input id="hobli" name="hobli" type="text" value="<%=farmer.hobli%>"/>
                 <label for="taluq">Taluq</label>
-                <input id="taluq" name="taluq" type="text" value="Chintamani" disabled/>
+                <input id="taluq" name="taluq" type="text" value="<%=farmer.taluq%>"/>
                 <label for="age">Age</label>
-                <input id="age" name="age" type="text"/>
+                <input id="age" name="age" type="text" value="<%=farmer.age%>"/>
                 <label for="education">Education</label>
-                <input id="education" name="education" type="text"/>
+                <input id="education" name="education" type="text" value="<%=farmer.education%>"/>
                 <label for="email">Email (Enter none@example.com if no email is given)</label>
-                <input id="email" name="email" type="text"/>
+                <input id="email" name="email" type="text" value="<%=farmer.email%>"/>
                 <label for="mobile">Phone Number</label>
-                <input id="mobile" name="mobile" type="tel"/>
+                <input id="mobile" name="mobile" type="tel" value="<%=farmer.mobile%>"/>
                 <label for="aadhar">Aadhar</label>
-                <input id="aadhar" name="aadhar" type="text"/>
+                <input id="aadhar" name="aadhar" type="text" value="<%=farmer.aadhar%>"/>
                 <label for="annual_income">Annual Income</label>
-                <input id="annual_income" name="annual_income" type="text"/>
+                <input id="annual_income" name="annual_income" type="text" value="<%=farmer.annual_income%>"/>
                 <label for="family_occupation">Family Occupation</label>
-                <input id="family_occupation" name="family_occupation" type="text"/>
+                <input id="family_occupation" name="family_occupation" type="text" value="<%=farmer.family_occupation%>"/>
                 <legend>House Details</legend>
                 <label for="house_status">Select House Status</label>
                 <select name="house_status" id="house_status" >
@@ -90,44 +90,44 @@ function attach_delete(){
                 <fieldset>
                     <legend>Extra Information</legend>
                     <label for="family_male">Male in Family</label>
-                    <input id="family_male" name="family_male" type="number"/>
+                    <input id="family_male" name="family_male" type="number" value=<%=farmer.family.male%>/>
                     <label for="family_female">Female in Family</label>
-                    <input id="family_female" name="family_female" type="number"/>
+                    <input id="family_female" name="family_female" type="number" value=<%=farmer.family.female%>/>
                     <label for="family_children">Children in Family</label>
-                    <input id="family_children" name="family_children" type="number"/>
+                    <input id="family_children" name="family_children" type="number" value=<%=farmer.family.children%>/>
                     <label for="working_member_male">Working Male</label>
-                    <input id="working_member_male" name="working_member_male" type="number"/>
+                    <input id="working_member_male" name="working_member_male" type="number" value=<%=farmer.working_member.male%>/>
                     <label for="working_member_female">Working Female</label>
-                    <input id="working_member_female" name="working_member_female" type="number"/>
+                    <input id="working_member_female" name="working_member_female" type="number" value=<%=farmer.working_member.female%>/>
                     <label for="workers_required_numb">No of Workers Required</label>
-                    <input id="workers_required_numb" name="workers_required_numb" type="number"/>
+                    <input id="workers_required_numb" name="workers_required_numb" type="number" value=<%=farmer.workers_required.numb%>/>
                     <label for="workers_required_excess">Excess of Workers</label>
-                    <input id="workers_required_excess" name="workers_required_excess" type="number"/>
+                    <input id="workers_required_excess" name="workers_required_excess" type="number" value=<%=farmer.workers_required.excess%>/>
                     <label for="workers_required_short_fall">Shortfall of Workers</label>
-                    <input id="workers_required_short_fall" name="workers_required_short_fall" type="number"/>
+                    <input id="workers_required_short_fall" name="workers_required_short_fall" type="number" value=<%=farmer.workers_required.short_fall%>/>
                 </fieldset>
         </section>
         <section data-step="3">
                 <fieldset>
                     <legend>Bank Details</legend>
                     <label for="bank_details[bank_name]">Bank Name</label>
-                    <input id="bank_details[bank_name]" name="bank_details[bank_name]" type="text" />
+                    <input id="bank_details[bank_name]" name="bank_details[bank_name]" type="text" value="<%=farmer.bank_details.bank_name%>"/>
                     <label for="bank_details[acc_no]">Account Number</label>
-                    <input id="bank_details[acc_no]" name="bank_details[acc_no]" type="text" />
+                    <input id="bank_details[acc_no]" name="bank_details[acc_no]" type="text" value="<%=farmer.bank_details.acc_no%>" />
                     <label for="bank_details[branch_name]">Branch Name</label>
-                    <input id="bank_details[branch_name]" name="bank_details[branch_name]" type="text" />
+                    <input id="bank_details[branch_name]" name="bank_details[branch_name]" type="text" value="<%=farmer.bank_details.branch_name%>"/>
                     <label for="bank_details[ifsc]">IFSC Code</label>
-                    <input class="bank_details[ifsc]" name="bank_details[ifsc]" type="text" />
+                    <input class="bank_details[ifsc]" name="bank_details[ifsc]" type="text" value="<%=farmer.bank_details.ifsc%>" />
                     <hr>
                     <div id="bank_clonable" style="display:none">
                             <label for="bank_details[bank_name]">Bank Name</label>
-                            <input id="bank_details[bank_name]" name="bank_details[bank_name]" type="text" />
+                            <input id="bank_details[bank_name]" name="bank_details[bank_name]" type="text" value="<%=farmer.bank_details.bank_name%>" />
                             <label for="bank_details[acc_no]">Account Number</label>
-                            <input id="bank_details[acc_no]" name="bank_details[acc_no]" type="text" />
+                            <input id="bank_details[acc_no]" name="bank_details[acc_no]" type="text" value="<%=farmer.bank_details.acc_no%>" />
                             <label for="bank_details[branch_name]">Branch Name</label>
-                            <input id="bank_details[branch_name]" name="bank_details[branch_name]" type="text" />
+                            <input id="bank_details[branch_name]" name="bank_details[branch_name]" type="text" value="<%=farmer.bank_details.branch_name%>" />
                             <label for="bank_details[ifsc]">IFSC Code</label>
-                            <input class="bank_details[ifsc]" name="bank_details[ifsc]" type="text" />
+                            <input class="bank_details[ifsc]" name="bank_details[ifsc]" type="text" value="<%=farmer.bank_details.ifsc%>" />
                             <hr>
                     </div>
                     <div style="display: inline-block; color: #fff; background: #9b4dca; width: 9.5rem; padding: 8px 40px; height:  3.8rem; border-radius: .4rem;" id="add_bank_clone"><i class="fa fa-plus"></i></div>
@@ -145,13 +145,13 @@ function attach_delete(){
                 </select>
 
                 <label for="land_extent">Extent</label>
-                <input id="land_extent" name="land_extent" type="text" />
+                <input id="land_extent" name="land_extent" type="text" value="<%=farmer.land_details.extent%>" />
                 <label for="land_survey_no">Survey Number</label>
-                <input id="land_survey_no" name="land_survey_no" type="text" />
+                <input id="land_survey_no" name="land_survey_no" type="text" value="<%=farmer.land_details.survey_no%>" />
                 <label for="land_village">Village</label>
-                <input id="land_village" name="land_village" type="text" />
+                <input id="land_village" name="land_village" type="text" value="<%=farmer.land_details.village%>" />
                 <label for="land_name">Name</label>
-                <input id="land_name" name="land_name" type="text" />                
+                <input id="land_name" name="land_name" type="text" value="<%=farmer.land_details.name%>" />                
                 <hr>
                 <div id="land_clonable" style="display:none">
                         <select name="land_details" id="land_details" class="form-control">
@@ -162,13 +162,13 @@ function attach_delete(){
                         </select>
     
                         <label for="land_extent">Extent</label>
-                        <input id="land_extent" name="land_extent" type="text" />
+                        <input id="land_extent" name="land_extent" type="text" value="<%=farmer.land_details.extent%>" />
                         <label for="land_survey_no">Survey Number</label>
-                        <input id="land_survey_no" name="land_survey_no" type="text" />
+                        <input id="land_survey_no" name="land_survey_no" type="text" value="<%=farmer.land_details.survey_no%>" />
                         <label for="land_village">Village</label>
-                        <input id="land_village" name="land_village" type="text" />
+                        <input id="land_village" name="land_village" type="text" value="<%=farmer.land_details.village%>" />
                         <label for="land_name">Name</label>
-                        <input id="land_name" name="land_name" type="text" />
+                        <input id="land_name" name="land_name" type="text" value="<%=farmer.land_details.name%>" />
                         <hr>
                     </div>
                 <div style="display: inline-block; color: #fff; background: #9b4dca; width: 9.5rem; padding: 8px 40px; height:  3.8rem; border-radius: .4rem;" id="add_land_clone"><i class="fa fa-plus"></i></div>
@@ -177,34 +177,21 @@ function attach_delete(){
                 
                 
                 <label for="total_land_irrigated">Total Irrigated</label>
-                <input id="total_land_irrigated" name="total_land_irrigated" type="text" />
+                <input id="total_land_irrigated" name="total_land_irrigated" type="text" value="<%=farmer.land_details.total_land_irrigated%>" />
                 <label for="total_land_rain_fed">Total Rain Fed</label>
-                <input id="total_land_rain_fed" name="total_land_rain_fed" type="text" />
+                <input id="total_land_rain_fed" name="total_land_rain_fed" type="text" value="<%=farmer.land_details.total_land_rain_fed%>" />
                 <label for="total_land_lease">Total Land Under Lease</label>
-                <input id="total_land_lease" name="total_land_lease" type="text" />
+                <input id="total_land_lease" name="total_land_lease" type="text" value="<%=farmer.land_details.total_land_lease%>" />
                 <label for="total_land_leased_out">Total Land Leased Out</label>
-                <input id="total_land_leased_out" name="total_land_leased_out" type="text" />
+                <input id="total_land_leased_out" name="total_land_leased_out" type="text" value="<%=farmer.land_details.total_land_leased_out%>" />
                 <label for="total_land_query">Total Land Holding</label>
-                <input id="total_land_query" name="total_land_query" type="text" />
+                <input id="total_land_query" name="total_land_query" type="text" value="<%=farmer.land_details.total_land_holding%>" />
                 
             </fieldset>
         </section>
         <section data-step="5">
-            <fieldset>
-                <legend>Irrigation Source</legend>
-                    <label for="irrigation_source">Source of Irrigation</label>
-                    <select name="irrigation_source" id="irrigation_source" class="form-control">
-                        <option value="">Select an option</option>
-                        <option value="borewell">Borewell</option>
-                        <option value="lakeorpond">Lake/Pond</option>
-                        <option value="stream">Stream</option>
-                        <option value="rain_fed">Rain Fed</option>
-                    </select>
-                    <label for="depth">Depth (in feet) of Borewell</label>
-                    <input id="depth" name="depth" type="text" disabled/>
-                    <label for="yield">Yield (in inches) of Borewell</label>
-                    <input id="yield" name="yield" type="text" disabled/>
-                    <div id="irrigation_clonable">
+                <fieldset>
+                    <legend>Irrigation Source</legend>
                         <label for="irrigation_source">Source of Irrigation</label>
                         <select name="irrigation_source" id="irrigation_source" class="form-control">
                             <option value="">Select an option</option>
@@ -217,34 +204,31 @@ function attach_delete(){
                         <input id="depth" name="depth" type="text" disabled/>
                         <label for="yield">Yield (in inches) of Borewell</label>
                         <input id="yield" name="yield" type="text" disabled/>
-                    </div>
-                    <div style="display: inline-block; color: #fff; background: #9b4dca; width: 9.5rem; padding: 8px 40px; height:  3.8rem; border-radius: .4rem;" id="add_irrigation_clone"><i class="fa fa-plus"></i></div>
-                    <div style="display: inline-block; color: #fff; background: #9b4dca; width: 9.5rem; padding: 8px 40px; height:  3.8rem; border-radius: .4rem;" id="remove_irrigation_clone"><i class="fa fa-minus"></i></div>
-            </fieldset>
-        </section>
+                </fieldset>
+            </section>
         <section data-step="6">
             <fieldset>
                 <legend>Domestic Animals</legend>
                 <label for="cow_count">Cows</label>
-                <input id="cow_count" name="cow_count" type="text" />
+                <input id="cow_count" name="cow_count" type="text" value="<%=farmer.domestic_animals.cow%>" />
                 <label for="cow_calf_count">Calves of Cow</label>
-                <input id="cow_calf_count" name="cow_calf_count" type="text" />
+                <input id="cow_calf_count" name="cow_calf_count" type="text" value="<%=farmer.domestic_animals.cow_calves%>" />
                 <label for="buffalo_count">Buffalo</label>
-                <input id="buffalo_count" name="buffalo_count" type="text" />
+                <input id="buffalo_count" name="buffalo_count" type="text" value="<%=farmer.domestic_animals.buffalo%>" />
                 <label for="buffalo_calf_count">Calves of Buffalo</label>
-                <input id="buffalo_calf_count" name="buffalo_calf_count" type="text" />
+                <input id="buffalo_calf_count" name="buffalo_calf_count" type="text" value="<%=farmer.domestic_animals.buffalo_calves%>" />
                 <label for="ox_count">Ox</label>
-                <input id="ox_count" name="ox_count" type="text" />
+                <input id="ox_count" name="ox_count" type="text" value="<%=farmer.domestic_animals.ox%>" />
                 <label for="cock_count">Cock</label>
-                <input id="cock_count" name="cock_count" type="text" />
+                <input id="cock_count" name="cock_count" type="text" value="<%=farmer.domestic_animals.cock%>" />
                 <label for="hen_count">Hen</label>
-                <input id="hen_count" name="hen_count" type="text" />
+                <input id="hen_count" name="hen_count" type="text" value="<%=farmer.domestic_animals.hen%>" />
                 <label for="sheep_count">Sheep</label>
-                <input id="sheep_count" name="sheep_count" type="text" />
+                <input id="sheep_count" name="sheep_count" type="text" value="<%=farmer.domestic_animals.sheep%>" />
                 <label for="goat_count">Goats</label>
-                <input id="goat_count" name="goat_count" type="text" />
+                <input id="goat_count" name="goat_count" type="text" value="<%=farmer.domestic_animals.goat%>" />
                 <label for="other_count">Others</label>
-                <input id="other_count" name="other_count" type="text" />
+                <input id="other_count" name="other_count" type="text" value="<%=farmer.domestic_animals.others%>" />
                 
             </fieldset>
         </section>
@@ -252,15 +236,15 @@ function attach_delete(){
                 <fieldset>
                     <legend>Sericulture</legend>
                     <label for="extent_mulbery_cultivation">Extent of Mulbery Cultivation</label>
-                    <input id="extent_mulbery_cultivation" name="extent_mulbery_cultivation" type="text"/>
+                    <input id="extent_mulbery_cultivation" name="extent_mulbery_cultivation" type="text" value="<%=farmer.sericulture.extent_mulbery_cultvation%>"/>
 
                     <label for="silk_worm_rearing_house">Silk Worm Rearing House</label>
-                    <input id="silk_worm_rearing_house" name="silk_worm_rearing_house" type="text"/>
+                    <input id="silk_worm_rearing_house" name="silk_worm_rearing_house" type="text" value="<%=farmer.sericulture.silk_worm_rearing_house%>"/>
                     
                     <label for="mulbery_self_consumption">Mulbery Self Consumption</label>
-                    <input id="mulbery_self_consumption" name="mulbery_self_consumption" type="text"/>
+                    <input id="mulbery_self_consumption" name="mulbery_self_consumption" type="text" value="<%=farmer.sericulture.mulbery_self_consumption%>"/>
                     <label for="mulbery_selling">Mulbery Selling</label>
-                    <input id="mulbery_selling" name="mulbery_selling" type="text"/>
+                    <input id="mulbery_selling" name="mulbery_selling" type="text" value="<%=farmer.sericulture.mulbery_selling%>"/>
                 </fieldset>
         </section>
         <section data-step="8">
@@ -325,54 +309,54 @@ function attach_delete(){
                     </select>
                     <legend>Poly House (if Poly House is there, enter extent)</legend>
                     <label for="poly_house_extent">Poly House Extent</label>
-                    <input id="poly_house_extent" name="poly_house_extent" type="text"/>
+                    <input id="poly_house_extent" name="poly_house_extent" type="text" value="<%=farmer.poly_house.extent%>"/>
                 </fieldset>
         </section>
         <section data-step="9">
                 <fieldset>
                     <legend>Crop Details</legend>
                     <label for="crop_details_crop">Crop</label>
-                    <input id="crop_details_crop" name="crop_details_crop" type="text"/>
+                    <input id="crop_details_crop" name="crop_details_crop" type="text" value="<%=farmer.crop_details.crop%>"/>
                     <label for="crop_details_extent">Extent</label>
-                    <input id="crop_details_extent" name="crop_details_extent" type="text"/>
+                    <input id="crop_details_extent" name="crop_details_extent" type="text" value="<%=farmer.crop_details.extent%>"/>
                     <label for="crop_details_irrigated">Irrigated</label>
-                    <input id="crop_details_irrigated" name="crop_details_irrigated" type="text"/>
+                    <input id="crop_details_irrigated" name="crop_details_irrigated" type="text" value="<%=farmer.crop_details.irrigated%>"/>
                     <label for="crop_details_rain_fed">Rain Fed</label>
-                    <input id="crop_details_rain_fed" name="crop_details_rain_fed" type="text"/>
+                    <input id="crop_details_rain_fed" name="crop_details_rain_fed" type="text" value="<%=farmer.crop_details.rain_fed%>"/>
                     <label for="crop_details_species">Species</label>
-                    <input id="crop_details_species" name="crop_details_species" type="text"/>
+                    <input id="crop_details_species" name="crop_details_species" type="text" value="<%=farmer.crop_details.species%>"/>
                     <label for="crop_details_date_seeding">Date of Seeding</label>
-                    <input id="crop_details_date_seeding" name="crop_details_date_seeding" type="text"/>
+                    <input id="crop_details_date_seeding" name="crop_details_date_seeding" type="text" value="<%=farmer.crop_details.date_seeding%>"/>
                     <label for="crop_details_expected_date_of_yield">Expected Date of Yield</label>
-                    <input id="crop_details_expected_date_of_yield" name="crop_details_expected_date_of_yield" type="text"/>
+                    <input id="crop_details_expected_date_of_yield" name="crop_details_expected_date_of_yield" type="text" value="<%=farmer.crop_details.expected_date_of_yield%>"/>
                     <label for="crop_details_expected_production">Expected Production</label>
-                    <input id="crop_details_expected_production" name="crop_details_expected_production" type="text"/>
+                    <input id="crop_details_expected_production" name="crop_details_expected_production" type="text" value="<%=farmer.crop_details.expected_production%>"/>
                     <label for="crop_details_unit">Unit</label>
-                    <input id="crop_details_unit" name="crop_details_unit" type="text"/>
+                    <input id="crop_details_unit" name="crop_details_unit" type="text" value="<%=farmer.crop_details.unit%>"/>
                     <label for="crop_details_soil_type">Soil Type</label>
-                    <input id="crop_details_soil_type" name="crop_details_soil_type" type="text"/>
+                    <input id="crop_details_soil_type" name="crop_details_soil_type" type="text" value="<%=farmer.crop_details.soil_type%>"/>
                     <hr>
                     <div id="crop_clonable" style="display:none">
                         <label for="crop_details_crop">Crop</label>
-                        <input id="crop_details_crop" name="crop_details_crop" type="text"/>
+                        <input id="crop_details_crop" name="crop_details_crop" type="text" value="<%=farmer.crop_details.crop%>"/>
                         <label for="crop_details_extent">Extent</label>
-                        <input id="crop_details_extent" name="crop_details_extent" type="text"/>
+                        <input id="crop_details_extent" name="crop_details_extent" type="text" value="<%=farmer.crop_details.extent%>"/>
                         <label for="crop_details_irrigated">Irrigated</label>
-                        <input id="crop_details_irrigated" name="crop_details_irrigated" type="text"/>
+                        <input id="crop_details_irrigated" name="crop_details_irrigated" type="text" value="<%=farmer.crop_details.irrigated%>"/>
                         <label for="crop_details_rain_fed">Rain Fed</label>
-                        <input id="crop_details_rain_fed" name="crop_details_rain_fed" type="text"/>
+                        <input id="crop_details_rain_fed" name="crop_details_rain_fed" type="text" value="<%=farmer.crop_details.rain_fed%>"/>
                         <label for="crop_details_species">Species</label>
-                        <input id="crop_details_species" name="crop_details_species" type="text"/>
+                        <input id="crop_details_species" name="crop_details_species" type="text" value="<%=farmer.crop_details.species%>"/>
                         <label for="crop_details_date_seeding">Date of Seeding</label>
-                        <input id="crop_details_date_seeding" name="crop_details_date_seeding" type="text"/>
+                        <input id="crop_details_date_seeding" name="crop_details_date_seeding" type="text" value="<%=farmer.crop_details.date_seeding%>"/>
                         <label for="crop_details_expected_date_of_yield">Expected Date of Yield</label>
-                        <input id="crop_details_expected_date_of_yield" name="crop_details_expected_date_of_yield" type="text"/>
+                        <input id="crop_details_expected_date_of_yield" name="crop_details_expected_date_of_yield" type="text" value="<%=farmer.crop_details.expected_date_of_yield%>"/>
                         <label for="crop_details_expected_production">Expected Production</label>
-                        <input id="crop_details_expected_production" name="crop_details_expected_production" type="text"/>
+                        <input id="crop_details_expected_production" name="crop_details_expected_production" type="text" value="<%=farmer.crop_details.expected_production%>"/>
                         <label for="crop_details_unit">Unit</label>
-                        <input id="crop_details_unit" name="crop_details_unit" type="text"/>
+                        <input id="crop_details_unit" name="crop_details_unit" type="text" value="<%=farmer.crop_details.unit%>"/>
                         <label for="crop_details_soil_type">Soil Type</label>
-                        <input id="crop_details_soil_type" name="crop_details_soil_type" type="text"/>
+                        <input id="crop_details_soil_type" name="crop_details_soil_type" type="text" value="<%=farmer.crop_details.soil_type%>"/>
                         <hr>
                     
                     </div>
@@ -384,19 +368,19 @@ function attach_delete(){
             <fieldset>
                     <legend>Soil Test (Skip if not done)</legend>
                 <label for="crop_details_soil_test">Soil Test</label>
-                    <input id="crop_details_soil_test" name="crop_details_soil_test" type="text"/>
+                    <input id="crop_details_soil_test" name="crop_details_soil_test" type="text" value="<%=farmer.crop_details.soil_test%>"/>
                     <label for="crop_details_ph_value">pH Value</label>
-                    <input id="crop_details_ph_value" name="crop_details_ph_value" type="text"/>
+                    <input id="crop_details_ph_value" name="crop_details_ph_value" type="text" value="<%=farmer.crop_details.ph_value%>"/>
                     <label for="crop_details_organic_carbon">Organic Carbon</label>
-                    <input id="crop_details_organic_carbon" name="crop_details_organic_carbon" type="text"/>
+                    <input id="crop_details_organic_carbon" name="crop_details_organic_carbon" type="text" value="<%=farmer.crop_details.organic_carbon%>"/>
                     <label for="crop_details_n">N</label>
-                    <input id="crop_details_n" name="crop_details_n" type="text"/>
+                    <input id="crop_details_n" name="crop_details_n" type="text" value="<%=farmer.crop_details.n%>"/>
                     <label for="crop_details_p">P</label>
-                    <input id="crop_details_p" name="crop_details_p" type="text"/>
+                    <input id="crop_details_p" name="crop_details_p" type="text" value="<%=farmer.crop_details.p%>"/>
                     <label for="crop_details_k">K</label>
-                    <input id="crop_details_k" name="crop_details_k" type="text"/>
+                    <input id="crop_details_k" name="crop_details_k" type="text" value="<%=farmer.crop_details.k%>"/>
                     <label for="crop_details_others">Others</label>
-                    <input id="crop_details_others" name="crop_details_others" type="text"/>
+                    <input id="crop_details_others" name="crop_details_others" type="text" value="<%=farmer.crop_details.others%>"/>
             </fieldset>
         </section>
         <section data-step="11">
@@ -444,15 +428,15 @@ function attach_delete(){
                 <fieldset>
                     <legend>Bank Loan</legend>
                     <label for="bank_bank_name">Bank Name</label>
-                    <input id="bank_bank_name" name="bank_bank_name" type="text"/>
+                    <input id="bank_bank_name" name="bank_bank_name" type="text" value="<%=farmer.bank.bank_name%>"/>
                     <label for="bank_branch">Branch</label>
-                    <input id="bank_branch" name="bank_branch" type="text"/>
+                    <input id="bank_branch" name="bank_branch" type="text" value="<%=farmer.bank.branch%>"/>
                     <label for="bank_loan_amount">Loan Amount</label>
-                    <input id="bank_loan_amount" name="bank_loan_amount" type="text"/>
+                    <input id="bank_loan_amount" name="bank_loan_amount" type="text" value="<%=farmer.bank.loan_amount%>"/>
                     <label for="bank_purpose">Purpose</label>
-                    <input id="bank_purpose" name="bank_purpose" type="text"/>
+                    <input id="bank_purpose" name="bank_purpose" type="text" value="<%=farmer.bank.purpose%>"/>
                     <label for="bank_repayment_date">Repayment Date</label>
-                    <input id="bank_repayment_date" name="bank_repayment_date" type="text"/>
+                    <input id="bank_repayment_date" name="bank_repayment_date" type="text" value="<%=farmer.bank.repayment_date%>"/>
                 </fieldset>
         </section>
         
@@ -465,9 +449,9 @@ function attach_delete(){
                             <option value="No">No</option>
                     </select>
                     <label for="any_other_information">Any Other Information</label>
-                    <input id="any_other_information" name="any_other_information" type="text"/>
+                    <input id="any_other_information" name="any_other_information" type="text" value="<%=farmer.any_other_information%>"/>
                     <label for="data_collected_by">Data Collected By</label>
-                    <input id="data_collected_by" name="data_collected_by" type="text"/>
+                    <input id="data_collected_by" name="data_collected_by" type="text" value="<%=farmer.data_collected_by%>"/>
                 </fieldset>
         </section>
         <button class="button button-outline">Back</button>
@@ -480,42 +464,33 @@ function attach_delete(){
     var lcCount=0;
     var bcCount=0;
     var ccCount=0;
-    var icCount=0;
     var filterMobile = /^[0-9]{10}$/;
     var filterAadhar = /^[0-9]{12}$/;
+    var filterEmail = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
     var mBool = false;
     var aBool = false;
+    var eBool = false;
     var confBool = false;
-    var wmm=0;
-    var wmf=0;
-    var wmr=0;
-    var wms=0;
-    var wme=0;
-    function workerChange(){
-        wmm=$('#working_member_male').val();
-        wmf=$('#working_member_female').val();
-        wmr=$('#workers_required_numb').val();
-        wms=wmr-(wmm+wmf);
-        wme=(wmm+wmf)-wmr;
-        $('#workers_required_excess').val(wme);
-        $('#workers_required_short_fall').val(wms);
-    }
     $(document).ready(function(){
         $("input[type='submit']").attr("disabled","disabled");
     });
-    $('#working_member_male').on('change paste keyup', workerChange()});
-    $('#working_member_female').on('change paste keyup', workerChange()});
-    $('#workers_required_numb').on('change paste keyup', workerChange()});
     $('#mobile').on('change paste keyup',function(){
         if(filterMobile.test($('#mobile').val())){
             mBool = true;
         } else {
             mBool = false;
         }
-        if(mBool && aBool){
+        if(mBool && eBool && aBool){
             $("input[type=submit]").removeAttr("disabled");
         } else {
             $("input[type='submit']").attr("disabled","disabled");
+        }
+    });
+    $('#email').on('blur',function(){
+        if(!eBool && !confBool){
+            confBool = confirm("Enter a valid email address!");
+        } else {
+            confBool = false;
         }
     });
     $('#mobile').on('blur',function(){
@@ -538,10 +513,24 @@ function attach_delete(){
         } else {
             aBool=false;
         }
-        if(mBool && aBool){
+        if(mBool && eBool && aBool){
             $("input[type=submit]").removeAttr("disabled");
         } else {
             $("input[type='submit']").attr("disabled","disabled");
+        }
+    });
+    $('#email').on('change paste keyup', function(){
+        if ($('#email').val()) {
+        if(filterEmail.test($('#email').val())){
+            eBool=true;
+        } else {
+            eBool=false;
+        }
+        if(mBool && eBool && aBool){
+            $("input[type=submit]").removeAttr("disabled");
+        } else {
+            $("input[type='submit']").attr("disabled","disabled");
+        } 
         }
     });
     $('label[for="total_land_query2"]').css("display","none");
@@ -596,25 +585,6 @@ function attach_delete(){
         }
         bcCount--;
     });
-
-
-    $('#add_irrigation_clone').on('click', function(){
-        icCount++;
-        if(icCount == 1){
-            $("#irrigation_clonable").clone().insertAfter("#irrigation_clonable").attr('id','cloned_irrigation'+icCount).css('display','block');
-        }else{
-            var lastB = icCount-1;
-            $("#irrigation_clonable").clone().insertAfter("#cloned_irrigation"+lastB).attr('id','cloned_irrigation'+icCount).css('display','block');
-        }
-    });
-    $('#remove_irrigation_clone').on('click',function(){
-        if(icCount != 0){
-            $("#cloned_irrigation"+icCount).remove();
-        }
-        icCount--;
-    });
-
-
     $('#irrigation_source').on('change', function(){
         if($('#irrigation_source').val()=='borewell') {
             $('#depth').removeAttr("disabled");
