@@ -495,17 +495,17 @@ function attach_delete(){
         wmm=$('#working_member_male').val();
         wmf=$('#working_member_female').val();
         wmr=$('#workers_required_numb').val();
-        wms=wmr-(wmm+wmf);
-        wme=(wmm+wmf)-wmr;
+        wms=wmr-wmm-wmf;
+        wme=wms*(-1);
         $('#workers_required_excess').val(wme);
         $('#workers_required_short_fall').val(wms);
     }
     $(document).ready(function(){
         $("input[type='submit']").attr("disabled","disabled");
     });
-    $('#working_member_male').on('change paste keyup', workerChange()});
-    $('#working_member_female').on('change paste keyup', workerChange()});
-    $('#workers_required_numb').on('change paste keyup', workerChange()});
+    $('#working_member_male').on('change paste keyup', workerChange);
+    $('#working_member_female').on('change paste keyup', workerChange);
+    $('#workers_required_numb').on('change paste keyup', workerChange);
     $('#mobile').on('change paste keyup',function(){
         if(filterMobile.test($('#mobile').val())){
             mBool = true;

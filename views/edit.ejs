@@ -90,7 +90,7 @@ function attach_delete(){
                 <fieldset>
                     <legend>Extra Information</legend>
                     <label for="family_male">Male in Family</label>
-                    <input id="family_male" name="family_male" type="number" value=<%=farmer.family.male%>/>
+                    <input id="family_male" name="family_male" type="number" value="<%=farmer.family.male%>"/>
                     <label for="family_female">Female in Family</label>
                     <input id="family_female" name="family_female" type="number" value=<%=farmer.family.female%>/>
                     <label for="family_children">Children in Family</label>
@@ -204,6 +204,20 @@ function attach_delete(){
                         <input id="depth" name="depth" type="text" disabled/>
                         <label for="yield">Yield (in inches) of Borewell</label>
                         <input id="yield" name="yield" type="text" disabled/>
+                        <div id="irrigation_clonable">
+                            <label for="irrigation_source">Source of Irrigation</label>
+                            <select name="irrigation_source" id="irrigation_source" class="form-control">
+                                <option value="">Select an option</option>
+                                <option value="borewell">Borewell</option>
+                                <option value="lakeorpond">Lake/Pond</option>
+                                <option value="stream">Stream</option>
+                                <option value="rain_fed">Rain Fed</option>
+                            </select>
+                            <label for="depth">Depth (in feet) of Borewell</label>
+                            <input id="depth" name="depth" type="text" disabled/>
+                            <label for="yield">Yield (in inches) of Borewell</label>
+                            <input id="yield" name="yield" type="text" disabled/>
+                        </div>
                 </fieldset>
             </section>
         <section data-step="6">
@@ -466,13 +480,38 @@ function attach_delete(){
     var ccCount=0;
     var filterMobile = /^[0-9]{10}$/;
     var filterAadhar = /^[0-9]{12}$/;
-    var filterEmail = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
     var mBool = false;
     var aBool = false;
-    var eBool = false;
     var confBool = false;
-    $(document).ready(function(){
-        $("input[type='submit']").attr("disabled","disabled");
+    var wmm=0;
+    var wmf=0;
+    var wmr=0;
+    var wms=0;
+    var wme=0;
+    function workerChange(){
+        wmm=$('#working_member_male').val();
+        wmf=$('#working_member_female').val();
+        wmr=$('#workers_required_numb').val();
+        wms=wmr-wmm-wmf;
+        wme=wms*(-1);
+        $('#workers_required_excess').val(wme);
+        $('#workers_required_short_fall').val(wms);
+    }
+    $(document).ready(function(){});
+    $('#working_member_male').on('change paste keyup', workerChange);
+    $('#working_member_female').on('change paste keyup', workerChange);
+    $('#workers_required_numb').on('change paste keyup', workerChange);
+    $('#mobile').on('change paste keyup',function(){
+        if(filterMobile.test($('#mobile').val())){
+            mBool = true;
+        } else {
+            mBool = false;
+        }
+        if(mBool && aBool){
+            $("input[type=submit]").removeAttr("disabled");
+        } else {
+            $("input[type='submit']").attr("disabled","disabled");
+        }
     });
     $('#mobile').on('change paste keyup',function(){
         if(filterMobile.test($('#mobile').val())){
@@ -480,17 +519,10 @@ function attach_delete(){
         } else {
             mBool = false;
         }
-        if(mBool && eBool && aBool){
+        if(mBool && aBool){
             $("input[type=submit]").removeAttr("disabled");
         } else {
             $("input[type='submit']").attr("disabled","disabled");
-        }
-    });
-    $('#email').on('blur',function(){
-        if(!eBool && !confBool){
-            confBool = confirm("Enter a valid email address!");
-        } else {
-            confBool = false;
         }
     });
     $('#mobile').on('blur',function(){
@@ -513,24 +545,10 @@ function attach_delete(){
         } else {
             aBool=false;
         }
-        if(mBool && eBool && aBool){
+        if(mBool && aBool){
             $("input[type=submit]").removeAttr("disabled");
         } else {
             $("input[type='submit']").attr("disabled","disabled");
-        }
-    });
-    $('#email').on('change paste keyup', function(){
-        if ($('#email').val()) {
-        if(filterEmail.test($('#email').val())){
-            eBool=true;
-        } else {
-            eBool=false;
-        }
-        if(mBool && eBool && aBool){
-            $("input[type=submit]").removeAttr("disabled");
-        } else {
-            $("input[type='submit']").attr("disabled","disabled");
-        } 
         }
     });
     $('label[for="total_land_query2"]').css("display","none");
@@ -593,6 +611,21 @@ function attach_delete(){
             $("#depth").attr("disabled", "disabled");
             $("#yield").attr("disabled", "disabled");
         }
+    });
+    $('#add_irrigation_clone').on('click', function(){
+        icCount++;
+        if(icCount == 1){
+            $("#irrigation_clonable").clone().insertAfter("#irrigation_clonable").attr('id','cloned_irrigation'+icCount).css('display','block');
+        }else{
+            var lastB = icCount-1;
+            $("#irrigation_clonable").clone().insertAfter("#cloned_irrigation"+lastB).attr('id','cloned_irrigation'+icCount).css('display','block');
+        }
+    });
+    $('#remove_irrigation_clone').on('click',function(){
+        if(icCount != 0){
+            $("#cloned_irrigation"+icCount).remove();
+        }
+        icCount--;
     });
     // $('#land_details').on('change', function() {
     //     if($('#land_details').val()=='irrigated'){
