@@ -4,6 +4,7 @@ var passport = require("passport");
 var mongoose = require('mongoose');                     // mongoose for mongodb
 var morgan = require('morgan');
 var fileUpload = require('express-fileupload');
+var json2xls = require('json2xls');
 
 var path = require('path'),
     fs = require('fs');
@@ -28,6 +29,7 @@ app.disable('x-powered-by');
 app.use(bodyParser.urlencoded({extended: true}));
 // app.use(bodyParser({uploadDir:'/uploads'}));
 app.use(fileUpload());
+app.use(json2xls.middleware);
 
 app.use(express.static(__dirname + "/assets"));
 app.set("view engine", "ejs");
@@ -265,6 +267,20 @@ app.get("/farmer", isAdmin ,function(req, res){
         console.log(allFarmerInfo);
         res.render("allfarmers", {allFarmerInfo: allFarmerInfo});
     });
+});
+
+app.get("/farmerrecord",isLoggedIn, function(req,res){
+
+	var object = {}
+	farmerInfo.find({}, function(err, allFarmerInfo){  	
+        if (err ){
+            console.log(err);
+        } else {
+        	object = allFarmerInfo;
+        	console.log(object);
+            res.xls('farmerdata.xlsx', object);
+        }
+    })
 });
 
 app.get("/farmer/new", isLoggedIn, function(req, res){
