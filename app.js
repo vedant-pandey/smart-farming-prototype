@@ -447,7 +447,7 @@ app.put("/farmer/:id", isAdmin ,function(req, res){
         } else {
             // console.log(foundFarmerInfo);
             // res.sendfile(path.resolve('./uploads/'+ foundFarmerInfo['aadhar'] +'.png'));
-            res.redirect("/farmer", {farmer: foundFarmerInfo});
+            res.redirect("/farmer");
         }
     });
 });
