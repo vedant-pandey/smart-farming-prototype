@@ -62,7 +62,7 @@ function attach_delete(){
                 <label for="hobli">Hobli</label>
                 <input id="hobli" name="hobli" type="text" value="<%=farmer.hobli%>"/>
                 <label for="taluq">Taluq</label>
-                <input id="taluq" name="taluq" type="text" value="<%=farmer.taluq%>"/>
+                <input id="taluq" name="taluq" type="text" value="Chintamani" disabled/>                
                 <label for="age">Age</label>
                 <input id="age" name="age" type="text" value="<%=farmer.age%>"/>
                 <label for="education">Education</label>
@@ -90,21 +90,21 @@ function attach_delete(){
                 <fieldset>
                     <legend>Extra Information</legend>
                     <label for="family_male">Male in Family</label>
-                    <input id="family_male" name="family_male" type="number" value="<%=farmer.family.male%>"/>
+                    <input id="family_male" name="family_male" type="text" value="<%=farmer.family.male%>"/>
                     <label for="family_female">Female in Family</label>
-                    <input id="family_female" name="family_female" type="number" value=<%=farmer.family.female%>/>
+                    <input id="family_female" name="family_female" type="text" value="<%=farmer.family.female%>"/>
                     <label for="family_children">Children in Family</label>
-                    <input id="family_children" name="family_children" type="number" value=<%=farmer.family.children%>/>
+                    <input id="family_children" name="family_children" type="text" value="<%=farmer.family.children%>"/>
                     <label for="working_member_male">Working Male</label>
-                    <input id="working_member_male" name="working_member_male" type="number" value=<%=farmer.working_member.male%>/>
+                    <input id="working_member_male" name="working_member_male" type="text" value="<%=farmer.working_member.male%>"/>
                     <label for="working_member_female">Working Female</label>
-                    <input id="working_member_female" name="working_member_female" type="number" value=<%=farmer.working_member.female%>/>
+                    <input id="working_member_female" name="working_member_female" type="text" value="<%=farmer.working_member.female%>"/>
                     <label for="workers_required_numb">No of Workers Required</label>
-                    <input id="workers_required_numb" name="workers_required_numb" type="number" value=<%=farmer.workers_required.numb%>/>
+                    <input id="workers_required_numb" name="workers_required_numb" type="text" value="<%=farmer.workers_required.numb%>"/>
                     <label for="workers_required_excess">Excess of Workers</label>
-                    <input id="workers_required_excess" name="workers_required_excess" type="number" value=<%=farmer.workers_required.excess%>/>
+                    <input id="workers_required_excess" name="workers_required_excess" type="text" value="<%=farmer.workers_required.excess%>"/>
                     <label for="workers_required_short_fall">Shortfall of Workers</label>
-                    <input id="workers_required_short_fall" name="workers_required_short_fall" type="number" value=<%=farmer.workers_required.short_fall%>/>
+                    <input id="workers_required_short_fall" name="workers_required_short_fall" type="text" value="<%=farmer.workers_required.short_fall%>"/>
                 </fieldset>
         </section>
         <section data-step="3">
@@ -121,13 +121,13 @@ function attach_delete(){
                     <hr>
                     <div id="bank_clonable" style="display:none">
                             <label for="bank_details[bank_name]">Bank Name</label>
-                            <input id="bank_details[bank_name]" name="bank_details[bank_name]" type="text" value="<%=farmer.bank_details.bank_name%>" />
+                            <input id="bank_details[bank_name]" name="bank_details[bank_name]" type="text"/>
                             <label for="bank_details[acc_no]">Account Number</label>
-                            <input id="bank_details[acc_no]" name="bank_details[acc_no]" type="text" value="<%=farmer.bank_details.acc_no%>" />
+                            <input id="bank_details[acc_no]" name="bank_details[acc_no]" type="text"/>
                             <label for="bank_details[branch_name]">Branch Name</label>
-                            <input id="bank_details[branch_name]" name="bank_details[branch_name]" type="text" value="<%=farmer.bank_details.branch_name%>" />
+                            <input id="bank_details[branch_name]" name="bank_details[branch_name]" type="text"/>
                             <label for="bank_details[ifsc]">IFSC Code</label>
-                            <input class="bank_details[ifsc]" name="bank_details[ifsc]" type="text" value="<%=farmer.bank_details.ifsc%>" />
+                            <input class="bank_details[ifsc]" name="bank_details[ifsc]" type="text"/>
                             <hr>
                     </div>
                     <div style="display: inline-block; color: #fff; background: #9b4dca; width: 9.5rem; padding: 8px 40px; height:  3.8rem; border-radius: .4rem;" id="add_bank_clone"><i class="fa fa-plus"></i></div>
@@ -162,13 +162,13 @@ function attach_delete(){
                         </select>
     
                         <label for="land_extent">Extent</label>
-                        <input id="land_extent" name="land_extent" type="text" value="<%=farmer.land_details.extent%>" />
+                        <input id="land_extent" name="land_extent" type="text" />
                         <label for="land_survey_no">Survey Number</label>
-                        <input id="land_survey_no" name="land_survey_no" type="text" value="<%=farmer.land_details.survey_no%>" />
+                        <input id="land_survey_no" name="land_survey_no" type="text" />
                         <label for="land_village">Village</label>
-                        <input id="land_village" name="land_village" type="text" value="<%=farmer.land_details.village%>" />
+                        <input id="land_village" name="land_village" type="text" />
                         <label for="land_name">Name</label>
-                        <input id="land_name" name="land_name" type="text" value="<%=farmer.land_details.name%>" />
+                        <input id="land_name" name="land_name" type="text" />
                         <hr>
                     </div>
                 <div style="display: inline-block; color: #fff; background: #9b4dca; width: 9.5rem; padding: 8px 40px; height:  3.8rem; border-radius: .4rem;" id="add_land_clone"><i class="fa fa-plus"></i></div>
@@ -352,25 +352,25 @@ function attach_delete(){
                     <hr>
                     <div id="crop_clonable" style="display:none">
                         <label for="crop_details_crop">Crop</label>
-                        <input id="crop_details_crop" name="crop_details_crop" type="text" value="<%=farmer.crop_details.crop%>"/>
+                        <input id="crop_details_crop" name="crop_details_crop" type="text" />
                         <label for="crop_details_extent">Extent</label>
-                        <input id="crop_details_extent" name="crop_details_extent" type="text" value="<%=farmer.crop_details.extent%>"/>
+                        <input id="crop_details_extent" name="crop_details_extent" type="text" />
                         <label for="crop_details_irrigated">Irrigated</label>
-                        <input id="crop_details_irrigated" name="crop_details_irrigated" type="text" value="<%=farmer.crop_details.irrigated%>"/>
+                        <input id="crop_details_irrigated" name="crop_details_irrigated" type="text" />
                         <label for="crop_details_rain_fed">Rain Fed</label>
-                        <input id="crop_details_rain_fed" name="crop_details_rain_fed" type="text" value="<%=farmer.crop_details.rain_fed%>"/>
+                        <input id="crop_details_rain_fed" name="crop_details_rain_fed" type="text" />
                         <label for="crop_details_species">Species</label>
-                        <input id="crop_details_species" name="crop_details_species" type="text" value="<%=farmer.crop_details.species%>"/>
+                        <input id="crop_details_species" name="crop_details_species" type="text" />
                         <label for="crop_details_date_seeding">Date of Seeding</label>
-                        <input id="crop_details_date_seeding" name="crop_details_date_seeding" type="text" value="<%=farmer.crop_details.date_seeding%>"/>
+                        <input id="crop_details_date_seeding" name="crop_details_date_seeding" type="text" />
                         <label for="crop_details_expected_date_of_yield">Expected Date of Yield</label>
-                        <input id="crop_details_expected_date_of_yield" name="crop_details_expected_date_of_yield" type="text" value="<%=farmer.crop_details.expected_date_of_yield%>"/>
+                        <input id="crop_details_expected_date_of_yield" name="crop_details_expected_date_of_yield" type="text" />
                         <label for="crop_details_expected_production">Expected Production</label>
-                        <input id="crop_details_expected_production" name="crop_details_expected_production" type="text" value="<%=farmer.crop_details.expected_production%>"/>
+                        <input id="crop_details_expected_production" name="crop_details_expected_production" type="text" />
                         <label for="crop_details_unit">Unit</label>
-                        <input id="crop_details_unit" name="crop_details_unit" type="text" value="<%=farmer.crop_details.unit%>"/>
+                        <input id="crop_details_unit" name="crop_details_unit" type="text" />
                         <label for="crop_details_soil_type">Soil Type</label>
-                        <input id="crop_details_soil_type" name="crop_details_soil_type" type="text" value="<%=farmer.crop_details.soil_type%>"/>
+                        <input id="crop_details_soil_type" name="crop_details_soil_type" type="text" />
                         <hr>
                     
                     </div>
@@ -480,6 +480,7 @@ function attach_delete(){
     var ccCount=0;
     var filterMobile = /^[0-9]{10}$/;
     var filterAadhar = /^[0-9]{12}$/;
+    var filterPeople = /^[0-9]*$/;
     var mBool = false;
     var aBool = false;
     var confBool = false;
@@ -525,8 +526,39 @@ function attach_delete(){
             $("input[type='submit']").attr("disabled","disabled");
         }
     });
+    $('#family_male').on('change paste keyup',function(){
+        if(!(filterPeople.test($('#family_male').val()))){
+            $('#family_male').val("");
+        }
+    });
+    $('#family_female').on('change paste keyup',function(){
+        if(!(filterPeople.test($('#family_female').val()))){
+            $('#family_female').val("");
+        }
+    });
+    $('#family_children').on('change paste keyup',function(){
+        if(!(filterPeople.test($('#family_children').val()))){
+            $('#family_children').val("");
+        }
+    });
+    $('#working_member_male').on('change paste keyup',function(){
+        if(!(filterPeople.test($('#working_member_male').val()))){
+            $('#working_member_male').val("");
+        }
+    });
+    $('#working_member_female').on('change paste keyup',function(){
+        if(!(filterPeople.test($('#working_member_female').val()))){
+            $('#working_member_female').val("");
+        }
+    });
+    $('#workers_required_numb').on('change paste keyup',function(){
+        if(!(filterPeople.test($('#workers_required_numb').val()))){
+            $('#workers_required_numb').val("");
+        }
+    });
     $('#mobile').on('blur',function(){
         if(!mBool && !confBool){
+            $("#mobile").focus();
             confBool = confirm("Enter a valid mobile number!");
         } else {
             confBool = false;
@@ -534,6 +566,7 @@ function attach_delete(){
     });
     $('#aadhar').on('blur',function(){
         if(!aBool && !confBool){
+            $("#aadhar").focus(); 
             confBool = confirm("Enter a valid aadhar number!");
         } else {
             confBool = false;

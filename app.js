@@ -24,7 +24,7 @@ var userSchema = new mongoose.Schema({
 });
 userSchema.plugin(passportLocalMongoose);
 var User = mongoose.model("User", userSchema);
-app.use(methodOverride());
+app.use(methodOverride("_method"));
 app.disable('x-powered-by');
 app.use(bodyParser.urlencoded({extended: true}));
 // app.use(bodyParser({uploadDir:'/uploads'}));

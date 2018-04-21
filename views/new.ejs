@@ -90,21 +90,21 @@ function attach_delete(){
                 <fieldset>
                     <legend>Extra Information</legend>
                     <label for="family_male">Male in Family</label>
-                    <input id="family_male" name="family_male" type="number"/>
+                    <input id="family_male" name="family_male" type="text"/>
                     <label for="family_female">Female in Family</label>
-                    <input id="family_female" name="family_female" type="number"/>
+                    <input id="family_female" name="family_female" type="text"/>
                     <label for="family_children">Children in Family</label>
-                    <input id="family_children" name="family_children" type="number"/>
+                    <input id="family_children" name="family_children" type="text"/>
                     <label for="working_member_male">Working Male</label>
-                    <input id="working_member_male" name="working_member_male" type="number"/>
+                    <input id="working_member_male" name="working_member_male" type="text"/>
                     <label for="working_member_female">Working Female</label>
-                    <input id="working_member_female" name="working_member_female" type="number"/>
+                    <input id="working_member_female" name="working_member_female" type="text"/>
                     <label for="workers_required_numb">No of Workers Required</label>
-                    <input id="workers_required_numb" name="workers_required_numb" type="number"/>
+                    <input id="workers_required_numb" name="workers_required_numb" type="text"/>
                     <label for="workers_required_excess">Excess of Workers</label>
-                    <input id="workers_required_excess" name="workers_required_excess" type="number"/>
+                    <input id="workers_required_excess" name="workers_required_excess" type="text"/>
                     <label for="workers_required_short_fall">Shortfall of Workers</label>
-                    <input id="workers_required_short_fall" name="workers_required_short_fall" type="number"/>
+                    <input id="workers_required_short_fall" name="workers_required_short_fall" type="text"/>
                 </fieldset>
         </section>
         <section data-step="3">
@@ -483,6 +483,7 @@ function attach_delete(){
     var icCount=0;
     var filterMobile = /^[0-9]{10}$/;
     var filterAadhar = /^[0-9]{12}$/;
+    var filterPeople = /^[0-9]*$/;
     var mBool = false;
     var aBool = false;
     var confBool = false;
@@ -518,8 +519,39 @@ function attach_delete(){
             $("input[type='submit']").attr("disabled","disabled");
         }
     });
+    $('#family_male').on('change paste keyup',function(){
+        if(!(filterPeople.test($('#family_male').val()))){
+            $('#family_male').val("");
+        }
+    });
+    $('#family_female').on('change paste keyup',function(){
+        if(!(filterPeople.test($('#family_female').val()))){
+            $('#family_female').val("");
+        }
+    });
+    $('#family_children').on('change paste keyup',function(){
+        if(!(filterPeople.test($('#family_children').val()))){
+            $('#family_children').val("");
+        }
+    });
+    $('#working_member_male').on('change paste keyup',function(){
+        if(!(filterPeople.test($('#working_member_male').val()))){
+            $('#working_member_male').val("");
+        }
+    });
+    $('#working_member_female').on('change paste keyup',function(){
+        if(!(filterPeople.test($('#working_member_female').val()))){
+            $('#working_member_female').val("");
+        }
+    });
+    $('#workers_required_numb').on('change paste keyup',function(){
+        if(!(filterPeople.test($('#workers_required_numb').val()))){
+            $('#workers_required_numb').val("");
+        }
+    });
     $('#mobile').on('blur',function(){
         if(!mBool && !confBool){
+            $("#mobile").focus();
             confBool = confirm("Enter a valid mobile number!");
         } else {
             confBool = false;
@@ -527,6 +559,7 @@ function attach_delete(){
     });
     $('#aadhar').on('blur',function(){
         if(!aBool && !confBool){
+            $("#aadhar").focus();            
             confBool = confirm("Enter a valid aadhar number!");
         } else {
             confBool = false;
