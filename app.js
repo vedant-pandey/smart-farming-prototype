@@ -12,7 +12,7 @@ var path = require('path'),
 var bodyParser = require('body-parser');    // pull information from HTML POST (express4)
 var methodOverride = require('method-override'); // simulate DELETE and PUT (express4)
 var ejs  = require('ejs');
-mongoose.connect("mongodb://razor:hailhydra@ds243418.mlab.com:43418/mtaiitsubs");
+mongoose.connect("mongodb://razor:msrit123@@ds243418.mlab.com:43418/mtaiitsubs");
 var LocalStrategy = require("passport-local");
 // var passportLocalMongoose = require("passport-local-mongoose");
 app.use(morgan('dev'));                                         // log every request to the console           // parse application/x-www-form-urlencoded
